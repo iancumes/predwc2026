@@ -1,0 +1,53 @@
+name: Auto-update predictions
+
+# Free, scheduled refresh of the live predictor:
+#   pull latest international results -> retrain -> re-simulate -> re-freeze ->
+#   export static JSON -> commit. Vercel's GitHub integration redeploys on the
+#   push automatically, so NO secrets are required.
+#
+# scripts/download_data.py *merges* the CC0 feed (keyed on date/home/away,
+# preferring rows that have a real score), so the committed 2026 fixture
+# schedule is preserved and real results progressively fill it in.
+
+on:
+  schedule:
+    - cron: "0 8 * * *"      # daily 08:00 UTC
+    - cron: "0 20 * * *"     # and 20:00 UTC (busy on matchdays)
+  workflow_dispatch: {}       # manual "Run workflow" button
+
+permissions:
+  contents: write
+
+concurrency:
+  group: auto-update
+  cancel-in-progress: false
+
+env:
+  WC2026_N_SIMS: "30000"
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install engine
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e "packages/wc2026[db]" certifi
+      - name: Refresh + retrain + simulate + freeze + export
+        run: |
+          python scripts/download_data.py
+          wc2026 ingest
+          wc2026 train
+          wc2026 simulate --n-sims "$WC2026_N_SIMS"
+          wc2026 freeze
+          python scripts/export_static.py
+      - name: Commit (Vercel auto-deploys on push)
+        run: |
+          git config user.name  "wc2026-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/processed data/raw apps/web/public/data artifacts || true
+          git diff --cached --quiet || (git commit -m "chore(data): auto refresh" && git push)
