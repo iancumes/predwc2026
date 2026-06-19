@@ -1,0 +1,23 @@
+# The static site only needs apps/web (+ its committed public/data JSON).
+# Keep the upload small: exclude the Python engine, big data, caches.
+# NOTE: paths are anchored with a leading slash so we DON'T accidentally drop
+# apps/web/public/data (the JSON the build reads).
+/.venv
+/.git
+/.github
+/packages
+/services
+/migrations
+/scripts
+/docs
+/artifacts
+/data
+node_modules
+.next
+/apps/web/out
+*.parquet
+.mypy_cache
+.ruff_cache
+.pytest_cache
+__pycache__
+.DS_Store

@@ -1,0 +1,11 @@
+# Root config for files outside packages/wc2026 (scripts/, services/).
+line-length = 100
+target-version = "py311"
+
+[lint]
+select = ["E", "F", "I", "W", "UP", "B", "C4", "SIM"]
+ignore = ["E501", "B008", "E701", "E702"]
+
+[lint.per-file-ignores]
+# run_backtest.py sets matplotlib backend + warning filters before imports.
+"scripts/run_backtest.py" = ["E402"]

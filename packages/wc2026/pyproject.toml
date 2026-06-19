@@ -1,0 +1,73 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "wc2026"
+version = "0.1.0"
+description = "FIFA World Cup 2026 match prediction and tournament simulation engine"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "WC2026 Predictor" }]
+dependencies = [
+    "numpy==2.2.1",
+    "pandas==2.2.3",
+    "scipy==1.15.1",
+    "scikit-learn==1.6.1",
+    "pyarrow==18.1.0",
+    "matplotlib==3.10.0",
+    "python-dateutil==2.9.0.post0",
+    "pydantic==2.10.5",
+    "pydantic-settings==2.7.1",
+    "httpx==0.28.1",
+    "tenacity==9.0.0",
+]
+
+[project.optional-dependencies]
+db = [
+    "sqlalchemy==2.0.36",
+    "alembic==1.14.0",
+    "psycopg2-binary==2.9.10",
+]
+dev = [
+    "pytest==8.3.4",
+    "ruff==0.9.2",
+    "mypy==1.14.1",
+]
+
+[project.scripts]
+wc2026 = "wc2026.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+wc2026 = ["resources/*.json", "resources/*.csv"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W", "UP", "B", "C4", "SIM"]
+# E701/E702: compact one-line statements are intentional in vectorised numeric code.
+ignore = ["E501", "B008", "E701", "E702"]
+
+[tool.ruff.lint.per-file-ignores]
+"**/cli.py" = ["E402"]  # lazy imports after warnings filter (by design)
+
+[tool.mypy]
+python_version = "3.11"
+ignore_missing_imports = true
+warn_unused_ignores = false
+disallow_untyped_defs = false
+no_implicit_optional = true
+# import-untyped: 3rd-party libs (pandas/scipy/sklearn) ship partial/absent stubs.
+# union-attr: model attributes are Optional until fit() populates them (set-once pattern).
+disable_error_code = ["import-untyped", "annotation-unchecked", "union-attr"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

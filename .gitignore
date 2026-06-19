@@ -1,0 +1,37 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+
+# Node / Next
+node_modules/
+.next/
+apps/web/.next/
+
+# Secrets & local env
+.env
+*.local
+
+# Databases / local scratch
+*.db
+*.sqlite
+/tmp/
+
+# Raw data: keep the source feeds committed so the World Cup fixture schedule
+# survives a clean checkout and the auto-update merge can preserve it (the live
+# feed only carries played matches). Interim scratch stays ignored.
+data/raw/*
+!data/raw/results.csv
+!data/raw/goalscorers.csv
+!data/raw/shootouts.csv
+data/interim/
+
+# OS
+.DS_Store
+
+# Vercel CLI project link
+.vercel

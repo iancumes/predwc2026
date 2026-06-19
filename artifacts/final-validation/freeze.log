@@ -1,0 +1,9 @@
+[freeze] matchday 2026-06-11 -> 2 frozen (version production_ensemble-616181174a)
+[freeze] matchday 2026-06-12 -> 2 frozen (version production_ensemble-d1e28ae1c8)
+[freeze] matchday 2026-06-13 -> 4 frozen (version production_ensemble-89456153d8)
+[freeze] matchday 2026-06-14 -> 4 frozen (version production_ensemble-df048b3060)
+[freeze] matchday 2026-06-15 -> 4 frozen (version production_ensemble-dee4bae901)
+[freeze] matchday 2026-06-16 -> 4 frozen (version production_ensemble-f3a79d2ce1)
+[freeze] matchday 2026-06-17 -> 4 frozen (version production_ensemble-e018a62b25)
+[freeze] 48 pending matches frozen (cutoff 2026-06-17, version production_ensemble-7413b9297a)
+[freeze] total stored predictions: 72; new: 72; track-record matches: 24

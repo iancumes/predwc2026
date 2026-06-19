@@ -1,0 +1,3 @@
+# API-only deps; the wc2026 package (installed editable) brings numpy/pandas/etc.
+fastapi==0.115.6
+uvicorn[standard]==0.34.0

@@ -1,0 +1,19 @@
+{
+  "name": "production_ensemble",
+  "weights": {
+    "elo": 5.841789667103196e-19,
+    "poisson": 4.9474036509954224e-14,
+    "dixon_coles": 0.6215683233573797,
+    "boosting": 0.3784316766425708
+  },
+  "calibration": "isotonic",
+  "temperature": 0.7975825035067796,
+  "data_cutoff": "2026-06-17",
+  "base_models": {
+    "elo": "elo",
+    "poisson": "poisson",
+    "dixon_coles": "dixon_coles",
+    "boosting": "boosting"
+  },
+  "seed": 20260611
+}
