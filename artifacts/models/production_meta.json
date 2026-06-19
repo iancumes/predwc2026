@@ -7,7 +7,7 @@
     "boosting": 0.3784316766425708
   },
   "calibration": "isotonic",
-  "temperature": 0.7975825035067796,
+  "temperature": 0.7975757871611028,
   "data_cutoff": "2026-06-17",
   "base_models": {
     "elo": "elo",
