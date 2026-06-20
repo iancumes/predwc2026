@@ -1,1 +1,1 @@
-{"status":"ok","demo_mode":false,"data_cutoff":"2026-06-18","model":"production_ensemble","model_calibration":"isotonic","n_sims":30000,"sim_generated_at":"2026-06-19T21:01:00.730526+00:00","played_group_matches":28,"pending_group_matches":44}
+{"status":"ok","demo_mode":false,"data_cutoff":"2026-06-18","model":"production_ensemble","model_calibration":"isotonic","n_sims":30000,"sim_generated_at":"2026-06-20T06:24:20.021252+00:00","played_group_matches":28,"pending_group_matches":44}
