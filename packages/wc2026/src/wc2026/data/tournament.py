@@ -29,6 +29,7 @@ class Tournament:
     hosts: list[str]
     bracket: dict[str, list[dict]]               # round -> list of {match, slot1, slot2}
     fixtures: pd.DataFrame                        # the 72 group-stage matches (live)
+    knockout_fixtures: pd.DataFrame = field(default_factory=pd.DataFrame)  # live R32+ ties
     team_group: dict[str, str] = field(default_factory=dict)
 
     def __post_init__(self) -> None:
@@ -103,14 +104,23 @@ def load_tournament() -> Tournament:
     wc = matches[
         matches["is_world_cup"] & (matches["date"] >= pd.Timestamp("2026-01-01"))
     ].copy()
-    # Keep only the 72 group-stage fixtures (both teams belong to a group).
+    # Restrict to the 48 participating nations, then split the live feed into the
+    # group stage (both teams share a group) and the knockout stage (cross-group
+    # ties — these only appear once the feed assigns real teams to R32+ slots).
     members = {t for teams in groups.values() for t in teams}
     wc = wc[wc["home_team"].isin(members) & wc["away_team"].isin(members)].copy()
-    wc = wc.sort_values("date").reset_index(drop=True)
+    team_group = {t: g for g, teams in groups.items() for t in teams}
+    same_group = wc.apply(
+        lambda r: team_group.get(r["home_team"]) == team_group.get(r["away_team"]),
+        axis=1,
+    ) if len(wc) else pd.Series([], dtype=bool)
+    group_fx = wc[same_group].sort_values("date").reset_index(drop=True)
+    knockout_fx = wc[~same_group].sort_values("date").reset_index(drop=True)
 
     return Tournament(
         groups=groups,
         hosts=[canonical_name(t) for t in struct["hosts"]],
         bracket=struct["bracket"],
-        fixtures=wc,
+        fixtures=group_fx,
+        knockout_fixtures=knockout_fx,
     )

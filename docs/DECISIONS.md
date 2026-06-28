@@ -109,3 +109,19 @@ it isn't guaranteed. Status: done.
 ## D-012 Result-refresh schedule in Guatemala time
 Auto-update cron pinned to America/Guatemala: 08:00 and 23:59 local
 (`0 14 * * *`, `59 5 * * *` UTC). Status: done.
+
+## D-013 Knockout resolution: real fixtures as truth, allocation as predictor
+The deterministic bracket resolver prefers the live knockout fixtures (which
+carry the officially-assigned teams, incl. all FIFA tiebreakers) over the
+computed best-third allocation. The allocation (constraint-respecting, same as
+the simulator) is only a fallback to predict matchups before the fixture is
+published — it never overrides a real fixture. Group winner/runner-up slots are
+filled only when strictly decided on (points, GD, GF); ambiguous positions and
+undecided ties stay as labelled placeholders. No future/pending data is ever
+used (covered by a leakage test). Status: done.
+
+## D-014 Split group vs knockout fixtures in the tournament model
+`load_tournament` separates `fixtures` (same-group) from `knockout_fixtures`
+(cross-group), instead of lumping all WC matches together. Rationale: once the
+feed assigns real teams to R32+ ties they appeared as "cross-group" group
+fixtures, breaking `validate()` and inflating pending-group counts. Status: done.
