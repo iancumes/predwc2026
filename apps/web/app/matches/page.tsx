@@ -21,9 +21,20 @@ export default function MatchesPage() {
   const filtered = useMemo(() => {
     if (!matches) return [];
     return matches.filter(
-      (m) => (!group || m.group === group) && (!status || m.status === status)
+      (m) =>
+        (!group || (group === "KO" ? !!m.stage : m.group === group)) &&
+        (!status || m.status === status)
     );
   }, [matches, group, status]);
+
+  const STAGE_ABBR: Record<string, string> = {
+    "Round of 32": "R32",
+    "Round of 16": "R16",
+    "Quarter-final": "QF",
+    "Semi-final": "SF",
+    Final: "F",
+    "Third place": "3rd",
+  };
 
   if (err) return <ErrorState error={err} />;
   if (!matches) return <Loading />;
@@ -37,7 +48,8 @@ export default function MatchesPage() {
 
       <div className="mb-4 flex flex-wrap items-center gap-2">
         <select value={group} onChange={(e) => setGroup(e.target.value)} className={SELECT}>
-          <option value="">All groups</option>
+          <option value="">All stages</option>
+          <option value="KO">Knockouts</option>
           {GROUPS.map((g) => (
             <option key={g} value={g}>
               Group {g}
@@ -61,8 +73,13 @@ export default function MatchesPage() {
             className="flex flex-wrap items-center gap-3 px-4 py-3 transition-colors hover:bg-white/5"
           >
             <span className="w-20 text-xs text-slate-500">{m.date}</span>
-            <span className="grid h-6 w-6 place-items-center rounded-md bg-white/5 text-xs font-semibold text-slate-400">
-              {m.group}
+            <span
+              className={`grid h-6 w-8 place-items-center rounded-md text-xs font-semibold ${
+                m.stage ? "bg-brand/15 text-brand-300" : "bg-white/5 text-slate-400"
+              }`}
+              title={m.stage || (m.group ? `Group ${m.group}` : "")}
+            >
+              {m.stage ? STAGE_ABBR[m.stage] || "KO" : m.group}
             </span>
             <div className="flex w-64 items-center gap-2 font-medium">
               <div className="flex min-w-0 flex-1 items-center justify-end gap-2">

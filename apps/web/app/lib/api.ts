@@ -57,7 +57,8 @@ export type TeamProb = {
 export type MatchRow = {
   match_id: string;
   date: string;
-  group: string;
+  group: string | null;
+  stage?: string | null;
   home: string;
   away: string;
   home_code: string;

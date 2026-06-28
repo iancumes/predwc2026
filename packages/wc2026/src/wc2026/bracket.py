@@ -183,12 +183,14 @@ def resolve_bracket(t: Tournament) -> dict[str, dict]:
                 "label2": s2.label, "sub2": s2.sub,
                 "score1": None, "score2": None,
                 "winner_code": None, "status": "pending", "date": None,
+                "match_id": None,
             }
 
             if s1.team and s2.team:
                 fx = knockout.get(frozenset((s1.team, s2.team)))
                 if fx is not None:
                     entry["date"] = fx["date"].strftime("%Y-%m-%d")
+                    entry["match_id"] = fx["match_id"]
                     if fx["status"] == "played":
                         hs, as_ = int(fx["home_score"]), int(fx["away_score"])
                         # Map the fixture's home/away onto our slot1/slot2 order.

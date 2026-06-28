@@ -28,6 +28,7 @@ type KnockoutTie = {
   team1: { name: string; code: string };
   team2: { name: string; code: string };
   date: string | null;
+  match_id: string | null;
 };
 
 export default function Home() {
@@ -190,7 +191,7 @@ export default function Home() {
             {koTies.map((m, i) => (
               <Link
                 key={m.match}
-                href="/bracket"
+                href={m.match_id ? `/matches/${m.match_id}` : "/bracket"}
                 style={{ ["--i" as any]: i }}
                 className="card card-hover p-4"
               >

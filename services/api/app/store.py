@@ -150,13 +150,43 @@ def _group_fixture_rows(t, group: str) -> list[dict]:
     return rows
 
 
+# Round labels for knockout fixtures, keyed by bracket match_id.
+_STAGE_LABEL = {
+    "R32": "Round of 32", "R16": "Round of 16", "QF": "Quarter-final",
+    "SF": "Semi-final", "FINAL": "Final", "THIRD_PLACE": "Third place",
+}
+
+
+def _knockout_stage_by_id(t) -> dict[str, str]:
+    from wc2026.bracket import resolve_bracket
+    out: dict[str, str] = {}
+    for e in resolve_bracket(t).values():
+        if e.get("match_id"):
+            out[e["match_id"]] = _STAGE_LABEL.get(e["round"], e["round"])
+    return out
+
+
+def _all_fixtures(t):
+    """Group stage + live knockout ties, oldest first, with a `stage` column."""
+    import pandas as pd
+    parts = [df for df in (t.fixtures, t.knockout_fixtures) if len(df)]
+    if not parts:
+        return t.fixtures
+    return pd.concat(parts, ignore_index=True).sort_values("date")
+
+
 def matches(group: str | None = None, status_filter: str | None = None,
             team: str | None = None) -> list[dict]:
     t = tournament()
     preds = predictions_by_match()
+    stages = _knockout_stage_by_id(t)
     out = []
-    for _, m in t.fixtures.sort_values("date").iterrows():
+    for _, m in _all_fixtures(t).iterrows():
         g = t.group_of(m["home_team"])
+        stage = stages.get(m["match_id"])
+        is_ko = stage is not None
+        # A knockout tie isn't part of any single group.
+        g = None if is_ko else g
         if group and g != group:
             continue
         if status_filter and m["status"] != status_filter:
@@ -166,7 +196,7 @@ def matches(group: str | None = None, status_filter: str | None = None,
         p = preds.get(m["match_id"], {})
         out.append({
             "match_id": m["match_id"], "date": m["date"].strftime("%Y-%m-%d"),
-            "group": g, "home": m["home_team"], "away": m["away_team"],
+            "group": g, "stage": stage, "home": m["home_team"], "away": m["away_team"],
             "home_code": team_code(m["home_team"]), "away_code": team_code(m["away_team"]),
             "status": m["status"], "neutral": bool(m["neutral_venue"]),
             "city": m["city"], "country": m["country"],
@@ -180,14 +210,18 @@ def matches(group: str | None = None, status_filter: str | None = None,
 
 def match_detail(match_id: str) -> dict | None:
     t = tournament()
-    row = t.fixtures[t.fixtures["match_id"] == match_id]
+    allfx = _all_fixtures(t)
+    row = allfx[allfx["match_id"] == match_id]
     if len(row) == 0:
         return None
     m = row.iloc[0]
+    stage = _knockout_stage_by_id(t).get(match_id)
     pred = predictions_by_match().get(match_id)
     return {
         "match_id": match_id, "date": m["date"].strftime("%Y-%m-%d"),
-        "group": t.group_of(m["home_team"]), "home": m["home_team"], "away": m["away_team"],
+        "group": None if stage else t.group_of(m["home_team"]), "stage": stage,
+        "home": m["home_team"], "away": m["away_team"],
+        "home_code": team_code(m["home_team"]), "away_code": team_code(m["away_team"]),
         "status": m["status"], "neutral": bool(m["neutral_venue"]),
         "city": m["city"], "country": m["country"],
         "home_score": None if m["status"] != "played" else int(m["home_score"]),
