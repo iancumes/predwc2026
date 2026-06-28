@@ -1,8 +1,7 @@
 "use client";
-import { useEffect, useMemo, useState } from "react";
-import { api, pct, Standing } from "../lib/api";
+import { useEffect, useState } from "react";
+import { api, pct } from "../lib/api";
 import { Loading, ErrorState, Flag, TeamButton } from "../components/ui";
-import { teamSlug } from "../lib/flags";
 import { useTeamPeek } from "../components/TeamModal";
 
 // Order + display labels for the knockout rounds (R32 → Final).
@@ -14,63 +13,46 @@ const ROUND_META: { key: string; label: string; short: string }[] = [
   { key: "FINAL", label: "Final", short: "Final" },
 ];
 
-type Resolved =
-  | { kind: "team"; code: string; name: string }
-  | { kind: "slot"; label: string; sub?: string };
+// One resolved knockout match, as produced by the engine's bracket resolver.
+type MatchEntry = {
+  match: number;
+  round: string;
+  team1: { name: string; code: string } | null;
+  team2: { name: string; code: string } | null;
+  label1: string;
+  sub1: string | null;
+  label2: string;
+  sub2: string | null;
+  score1: number | null;
+  score2: number | null;
+  winner_code: string | null;
+  status: "played" | "scheduled" | "pending";
+  date: string | null;
+};
 
 export default function BracketPage() {
   const [data, setData] = useState<any>(null);
-  const [groups, setGroups] = useState<Record<string, Standing[]> | null>(null);
   const [err, setErr] = useState<string | null>(null);
   const [view, setView] = useState<"tree" | "odds">("tree");
 
   useEffect(() => {
-    Promise.all([api.bracket(), api.groups()])
-      .then(([b, g]) => {
-        setData(b);
-        setGroups(g.groups);
-      })
-      .catch((e) => setErr(String(e)));
+    api.bracket().then(setData).catch((e) => setErr(String(e)));
   }, []);
-
-  // Resolve "1A"/"2B" slots to real teams once a group is mathematically locked.
-  const locked = useMemo(() => {
-    const winner: Record<string, Standing> = {};
-    const runner: Record<string, Standing> = {};
-    if (!groups) return { winner, runner };
-    for (const [g, rows] of Object.entries(groups)) {
-      const w = rows.find((r) => r.p_win_group === 1);
-      const r = rows.find((r) => r.p_runner_up === 1);
-      if (w) winner[g] = w;
-      if (r) runner[g] = r;
-    }
-    return { winner, runner };
-  }, [groups]);
-
-  const resolve = (slot: string): Resolved => {
-    // Group winner / runner-up, e.g. "1A", "2C".
-    const gm = /^([12])([A-L])$/.exec(slot);
-    if (gm) {
-      const [, pos, g] = gm;
-      const row = pos === "1" ? locked.winner[g] : locked.runner[g];
-      if (row) return { kind: "team", code: teamSlug(row.team), name: row.team };
-      return { kind: "slot", label: pos === "1" ? `Winner Group ${g}` : `Runner-up ${g}` };
-    }
-    // Best-third-placed qualifier, e.g. "3:A/B/C/D/F".
-    if (slot.startsWith("3:"))
-      return { kind: "slot", label: "3rd place", sub: slot.slice(2).replace(/\//g, " / ") };
-    // Winner / loser of an earlier knockout match.
-    const wm = /^W(\d+)$/.exec(slot);
-    if (wm) return { kind: "slot", label: `Winner`, sub: `Match ${wm[1]}` };
-    const lm = /^L(\d+)$/.exec(slot);
-    if (lm) return { kind: "slot", label: `Loser`, sub: `Match ${lm[1]}` };
-    return { kind: "slot", label: slot };
-  };
 
   if (err) return <ErrorState error={err} />;
   if (!data) return <Loading label="Building the bracket…" />;
 
-  const thirdPlace = data.rounds.THIRD_PLACE?.[0];
+  const resolved: Record<string, MatchEntry> = data.resolved || {};
+  const get = (n: number): MatchEntry =>
+    resolved[String(n)] || ({ match: n, status: "pending" } as MatchEntry);
+
+  const champion = resolved["104"]?.winner_code
+    ? resolved["104"].winner_code === resolved["104"].team1?.code
+      ? resolved["104"].team1
+      : resolved["104"].team2
+    : null;
+
+  const playedCount = Object.values(resolved).filter((m) => m.status === "played").length;
 
   return (
     <div>
@@ -80,9 +62,9 @@ export default function BracketPage() {
           <div className="eyebrow mb-1">Knockout stage</div>
           <h1 className="text-3xl font-extrabold">Road to the final</h1>
           <p className="mt-2 max-w-2xl text-sm text-slate-400">
-            The official 2026 bracket from the Round of 32 onward. Decided group
-            slots show the real qualified nation; the rest fill in as results
-            land. Tap any team for its full story.
+            The official 2026 bracket from the Round of 32 onward. Real qualified
+            nations and scores fill in automatically as matches are played; every
+            winner advances to the next tie. Tap any team for its full story.
           </p>
         </div>
         <div className="inline-flex rounded-xl border border-white/10 bg-white/5 p-1 text-sm">
@@ -100,8 +82,20 @@ export default function BracketPage() {
         </div>
       </div>
 
+      {/* Champion banner once the final is decided */}
+      {champion && (
+        <div className="mb-6 flex items-center gap-4 rounded-2xl border border-gold/30 bg-gold/10 p-4 animate-scale-in">
+          <span className="text-3xl">🏆</span>
+          <Flag code={champion.code} name={champion.name} className="h-10 w-14" w={160} />
+          <div>
+            <div className="eyebrow text-gold">World champion</div>
+            <div className="text-2xl font-extrabold">{champion.name}</div>
+          </div>
+        </div>
+      )}
+
       {view === "tree" ? (
-        <BracketTree rounds={data.rounds} resolve={resolve} thirdPlace={thirdPlace} />
+        <BracketTree get={get} thirdPlace={get(103)} playedCount={playedCount} />
       ) : (
         <ReachTable rows={data.round_reach} />
       )}
@@ -113,122 +107,179 @@ export default function BracketPage() {
 // Bracket tree
 // ---------------------------------------------------------------------------
 function BracketTree({
-  rounds,
-  resolve,
+  get,
   thirdPlace,
+  playedCount,
 }: {
-  rounds: any;
-  resolve: (s: string) => Resolved;
-  thirdPlace: any;
+  get: (n: number) => MatchEntry;
+  thirdPlace: MatchEntry;
+  playedCount: number;
 }) {
+  // The fixed match numbers that make up each round, in vertical order.
+  const ROUND_MATCHES: Record<string, number[]> = {
+    R32: [73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88],
+    R16: [89, 90, 91, 92, 93, 94, 95, 96],
+    QF: [97, 98, 99, 100],
+    SF: [101, 102],
+    FINAL: [104],
+  };
+
   return (
     <div>
+      <div className="mb-4 flex items-center gap-2 text-xs text-slate-400">
+        <span className="inline-block h-2 w-2 rounded-full bg-brand" />
+        {playedCount} of 32 knockout matches played
+      </div>
+
       <div className="hide-scrollbar -mx-4 overflow-x-auto px-4 pb-4">
         <div className="flex min-w-max gap-5">
-          {ROUND_META.map((r, ci) => {
-            const matches = rounds[r.key] || [];
-            return (
-              <div key={r.key} className="flex w-[230px] flex-col" style={{ ["--i" as any]: ci }}>
-                <div className="mb-3 flex items-center gap-2">
-                  <span className="rounded-full bg-brand-gradient px-2.5 py-0.5 text-xs font-bold text-base-900">
-                    {r.short}
-                  </span>
-                  <span className="text-sm font-semibold text-slate-200">{r.label}</span>
-                  <span className="ml-auto text-xs text-slate-500">{matches.length}</span>
-                </div>
-                {/* Spread matches vertically so each round centres against its feeders. */}
-                <div
-                  className="flex flex-1 flex-col justify-around gap-3"
-                  style={{ paddingTop: ci * 8, paddingBottom: ci * 8 }}
-                >
-                  {matches.map((m: any, mi: number) => (
-                    <MatchCard
-                      key={m.match}
-                      match={m}
-                      resolve={resolve}
-                      delay={ci * 80 + mi * 40}
-                      champion={r.key === "FINAL"}
-                    />
-                  ))}
-                </div>
+          {ROUND_META.map((r, ci) => (
+            <div key={r.key} className="flex w-[250px] flex-col">
+              <div className="mb-3 flex items-center gap-2">
+                <span className="rounded-full bg-brand-gradient px-2.5 py-0.5 text-xs font-bold text-base-900">
+                  {r.short}
+                </span>
+                <span className="text-sm font-semibold text-slate-200">{r.label}</span>
               </div>
-            );
-          })}
+              <div
+                className="flex flex-1 flex-col justify-around gap-3"
+                style={{ paddingTop: ci * 10, paddingBottom: ci * 10 }}
+              >
+                {ROUND_MATCHES[r.key].map((n, mi) => (
+                  <MatchCard
+                    key={n}
+                    m={get(n)}
+                    delay={ci * 70 + mi * 35}
+                    champion={r.key === "FINAL"}
+                  />
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
 
-      {/* Third-place play-off, shown apart from the main tree. */}
-      {thirdPlace && (
-        <div className="mt-6 max-w-[230px]">
-          <div className="mb-3 flex items-center gap-2">
-            <span className="rounded-full bg-white/10 px-2.5 py-0.5 text-xs font-bold text-slate-200">
-              3rd
-            </span>
-            <span className="text-sm font-semibold text-slate-200">Third-place play-off</span>
-          </div>
-          <MatchCard match={thirdPlace} resolve={resolve} delay={0} />
+      {/* Third-place play-off */}
+      <div className="mt-6 max-w-[250px]">
+        <div className="mb-3 flex items-center gap-2">
+          <span className="rounded-full bg-white/10 px-2.5 py-0.5 text-xs font-bold text-slate-200">
+            3rd
+          </span>
+          <span className="text-sm font-semibold text-slate-200">Third-place play-off</span>
         </div>
-      )}
+        <MatchCard m={thirdPlace} delay={0} />
+      </div>
 
       <p className="mt-6 text-xs text-slate-500">
         Bracket structure verified against FIFA&apos;s official 2026 format,
-        including the best-eight third-placed rule. Placeholders resolve to real
-        nations automatically as each round is decided.
+        including the best-eight third-placed rule. Slots resolve to real nations
+        from live results; nothing is shown until it&apos;s mathematically decided.
       </p>
     </div>
   );
 }
 
 function MatchCard({
-  match,
-  resolve,
+  m,
   delay,
   champion,
 }: {
-  match: any;
-  resolve: (s: string) => Resolved;
+  m: MatchEntry;
   delay: number;
   champion?: boolean;
 }) {
-  const a = resolve(match.slot1);
-  const b = resolve(match.slot2);
+  const played = m.status === "played";
   return (
     <div
       style={{ animationDelay: `${delay}ms` }}
-      className="animate-scale-in overflow-hidden rounded-xl border border-white/10 bg-white/[0.04] shadow-card transition-colors hover:border-brand/40"
+      className={`animate-scale-in overflow-hidden rounded-xl border shadow-card transition-colors ${
+        played ? "border-brand/30 bg-white/[0.05]" : "border-white/10 bg-white/[0.03] hover:border-brand/30"
+      }`}
     >
       <div className="flex items-center justify-between border-b border-white/5 px-2.5 py-1 text-[10px] uppercase tracking-wide text-slate-500">
-        <span>Match {match.match}</span>
-        {champion && <span className="text-gold">🏆 Final</span>}
+        <span>Match {m.match}</span>
+        {champion ? (
+          <span className="text-gold">🏆 Final</span>
+        ) : m.date ? (
+          <span>{played ? "FT" : m.date.slice(5)}</span>
+        ) : null}
       </div>
-      <SlotRow r={a} />
+      <SlotRow
+        team={m.team1}
+        label={m.label1}
+        sub={m.sub1}
+        score={m.score1}
+        played={played}
+        isWinner={!!m.winner_code && m.team1?.code === m.winner_code}
+        isLoser={!!m.winner_code && m.team1 != null && m.team1.code !== m.winner_code}
+      />
       <div className="h-px bg-white/5" />
-      <SlotRow r={b} />
+      <SlotRow
+        team={m.team2}
+        label={m.label2}
+        sub={m.sub2}
+        score={m.score2}
+        played={played}
+        isWinner={!!m.winner_code && m.team2?.code === m.winner_code}
+        isLoser={!!m.winner_code && m.team2 != null && m.team2.code !== m.winner_code}
+      />
     </div>
   );
 }
 
-function SlotRow({ r }: { r: Resolved }) {
+function SlotRow({
+  team,
+  label,
+  sub,
+  score,
+  played,
+  isWinner,
+  isLoser,
+}: {
+  team: { name: string; code: string } | null;
+  label?: string;
+  sub?: string | null;
+  score: number | null;
+  played: boolean;
+  isWinner: boolean;
+  isLoser: boolean;
+}) {
   const { open } = useTeamPeek();
-  if (r.kind === "team") {
+
+  if (team) {
     return (
       <button
-        onClick={() => open(r.code)}
-        className="flex w-full items-center gap-2 px-3 py-2 text-left text-sm transition-colors hover:bg-white/5"
+        onClick={() => open(team.code)}
+        className={`flex w-full items-center gap-2 px-3 py-2 text-left text-sm transition-colors hover:bg-white/5 ${
+          isWinner ? "bg-brand/10" : ""
+        } ${isLoser ? "opacity-55" : ""}`}
       >
-        <Flag code={r.code} name={r.name} className="h-4 w-6 shrink-0" />
-        <span className="truncate font-semibold">{r.name}</span>
+        {isWinner && <span className="-ml-1 mr-0.5 h-4 w-1 rounded-full bg-brand" />}
+        <Flag code={team.code} name={team.name} className="h-4 w-6 shrink-0" />
+        <span className={`truncate ${isWinner ? "font-bold text-white" : "font-semibold"}`}>
+          {team.name}
+        </span>
+        {score !== null && (
+          <span
+            className={`ml-auto tnum text-sm font-bold ${
+              isWinner ? "text-brand" : "text-slate-400"
+            }`}
+          >
+            {score}
+          </span>
+        )}
       </button>
     );
   }
+
   return (
     <div className="flex items-center gap-2 px-3 py-2 text-sm text-slate-400">
       <span className="grid h-4 w-6 shrink-0 place-items-center rounded-sm bg-white/5 text-[9px]">
         ?
       </span>
       <span className="truncate">
-        {r.label}
-        {r.sub && <span className="ml-1 text-xs text-slate-500">{r.sub}</span>}
+        {label}
+        {sub && <span className="ml-1 text-xs text-slate-500">{sub}</span>}
       </span>
     </div>
   );

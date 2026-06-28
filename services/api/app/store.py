@@ -202,10 +202,12 @@ def groups() -> dict:
 
 
 def bracket() -> dict:
+    from wc2026.bracket import resolve_bracket
     t = tournament()
     sim_rows = {r["team"]: r for r in sim_results().get("teams", [])}
     return {
         "rounds": t.bracket,
+        "resolved": resolve_bracket(t),
         "round_reach": [
             {"team": n, "code": team_code(n), "group": t.group_of(n),
              "p_reach_r32": sim_rows.get(n, {}).get("p_reach_r32"),

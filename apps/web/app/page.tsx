@@ -13,18 +13,50 @@ import {
   Bar,
 } from "./components/ui";
 
+const ROUND_LABEL: Record<string, string> = {
+  R32: "Round of 32",
+  R16: "Round of 16",
+  QF: "Quarter-final",
+  SF: "Semi-final",
+  FINAL: "Final",
+  THIRD_PLACE: "Third place",
+};
+
+type KnockoutTie = {
+  match: number;
+  round: string;
+  team1: { name: string; code: string };
+  team2: { name: string; code: string };
+  date: string | null;
+};
+
 export default function Home() {
   const [health, setHealth] = useState<Health | null>(null);
   const [teams, setTeams] = useState<TeamProb[]>([]);
   const [matches, setMatches] = useState<MatchRow[]>([]);
+  const [ koTies, setKoTies] = useState<KnockoutTie[]>([]);
   const [err, setErr] = useState<string | null>(null);
 
   useEffect(() => {
-    Promise.all([api.health(), api.probabilities(), api.matches("?status=scheduled")])
-      .then(([h, p, m]) => {
+    Promise.all([
+      api.health(),
+      api.probabilities(),
+      api.matches("?status=scheduled"),
+      api.bracket().catch(() => null),
+    ])
+      .then(([h, p, m, b]) => {
         setHealth(h);
         setTeams(p.teams);
         setMatches(m.matches.slice(0, 6));
+        // Upcoming knockout ties (both teams known, not yet played) — keeps the
+        // home page useful once the group stage is over.
+        if (b?.resolved) {
+          const ties = (Object.values(b.resolved) as any[])
+            .filter((e) => e.status === "scheduled" && e.team1 && e.team2)
+            .sort((a, b) => (a.date || "").localeCompare(b.date || "") || a.match - b.match)
+            .slice(0, 6);
+          setKoTies(ties);
+        }
       })
       .catch((e) => setErr(String(e)));
   }, []);
@@ -148,12 +180,41 @@ export default function Home() {
         eyebrow="Next on the pitch"
         title="Upcoming matches"
         cta={
-          <Link href="/matches" className="text-sm text-brand-300 hover:underline">
-            All matches →
+          <Link href={matches.length === 0 && koTies.length ? "/bracket" : "/matches"} className="text-sm text-brand-300 hover:underline">
+            {matches.length === 0 && koTies.length ? "Full bracket →" : "All matches →"}
           </Link>
         }
       >
-        {matches.length === 0 ? (
+        {matches.length === 0 && koTies.length > 0 ? (
+          <div className="stagger grid gap-3 sm:grid-cols-2">
+            {koTies.map((m, i) => (
+              <Link
+                key={m.match}
+                href="/bracket"
+                style={{ ["--i" as any]: i }}
+                className="card card-hover p-4"
+              >
+                <div className="mb-3 flex justify-between text-xs text-slate-400">
+                  <span className="rounded-full bg-brand/15 px-2 py-0.5 font-semibold text-brand-300">
+                    {ROUND_LABEL[m.round] || m.round}
+                  </span>
+                  <span>{m.date || "TBD"}</span>
+                </div>
+                <div className="flex items-center justify-between gap-2">
+                  <div className="flex min-w-0 items-center gap-2 font-semibold">
+                    <Flag code={m.team1.code} name={m.team1.name} className="h-5 w-7" />
+                    <span className="truncate">{m.team1.name}</span>
+                  </div>
+                  <span className="text-[11px] font-bold text-slate-500">VS</span>
+                  <div className="flex min-w-0 items-center justify-end gap-2 font-semibold">
+                    <span className="truncate text-right">{m.team2.name}</span>
+                    <Flag code={m.team2.code} name={m.team2.name} className="h-5 w-7" />
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        ) : matches.length === 0 ? (
           <div className="card p-5 text-sm text-slate-400">No pending matches.</div>
         ) : (
           <div className="stagger grid gap-3 sm:grid-cols-2">
