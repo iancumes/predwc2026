@@ -16,7 +16,7 @@ export default function MethodologyPage() {
       <h1 className="text-2xl font-bold">Methodology</h1>
 
       <h2 className="mt-6 text-lg font-semibold">Data</h2>
-      <p className="text-sm text-slate-600">
+      <p className="text-sm text-slate-300">
         Primary source: <code>martj42/international_results</code> (CC0) — every
         international men&apos;s match since 1872, including the live 2026 World
         Cup fixtures and results. Team names are normalised across spellings and
@@ -26,7 +26,7 @@ export default function MethodologyPage() {
       </p>
 
       <h2 className="mt-6 text-lg font-semibold">Models</h2>
-      <ul className="list-disc pl-5 text-sm text-slate-600">
+      <ul className="list-disc pl-5 text-sm text-slate-300">
         <li><b>Elo</b> — World-Football style with margin-of-victory and tournament weighting.</li>
         <li><b>Poisson</b> — team attack/defence GLM with home advantage and time decay.</li>
         <li><b>Dixon–Coles</b> — bivariate Poisson with low-score correction and exponential time decay (MLE).</li>
@@ -37,7 +37,7 @@ export default function MethodologyPage() {
       </ul>
 
       <h2 className="mt-6 text-lg font-semibold">What we predict</h2>
-      <ul className="list-disc pl-5 text-sm text-slate-600">
+      <ul className="list-disc pl-5 text-sm text-slate-300">
         <li><b>Match result</b> — 1X2 (home / draw / away).</li>
         <li><b>Goals</b> — expected goals per side and total, full total-goals distribution,
           over/under 0.5–3.5, both-teams-to-score, and clean-sheet / win-to-nil probabilities.</li>
@@ -52,7 +52,7 @@ export default function MethodologyPage() {
       </p>
 
       <h2 className="mt-6 text-lg font-semibold">Validation &amp; calibration</h2>
-      <p className="text-sm text-slate-600">
+      <p className="text-sm text-slate-300">
         Models are compared with strict <b>walk-forward backtesting</b> (train on
         the past, predict the next period, never shuffle across time). The model
         is chosen primarily on out-of-sample <b>log loss</b> and{" "}
@@ -83,7 +83,7 @@ export default function MethodologyPage() {
                 <th className="px-2 py-1 text-right font-medium">Acc</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-50">
+            <tbody className="divide-y divide-white/5">
               {Object.entries(m.overall || {})
                 .sort((a: any, b: any) => a[1].log_loss - b[1].log_loss)
                 .map(([name, met]: any) => (
@@ -102,7 +102,7 @@ export default function MethodologyPage() {
       )}
 
       <h2 className="mt-6 text-lg font-semibold">Limitations</h2>
-      <p className="text-sm text-slate-600">
+      <p className="text-sm text-slate-300">
         A probability is not a certainty — a 70% favourite still loses ~3 times in
         10. International data is noisy (friendlies, missing line-ups), squad/injury
         information is not yet modelled, and the early-tournament track record is a

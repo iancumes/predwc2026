@@ -11,8 +11,9 @@ name: Auto-update predictions
 
 on:
   schedule:
-    - cron: "0 8 * * *"      # daily 08:00 UTC
-    - cron: "0 20 * * *"     # and 20:00 UTC (busy on matchdays)
+    # Times below are pinned to America/Guatemala (UTC-6, no DST).
+    - cron: "0 14 * * *"     # 08:00 Guatemala (14:00 UTC) — morning refresh
+    - cron: "59 5 * * *"     # 23:59 Guatemala (05:59 UTC) — end-of-day refresh
   workflow_dispatch: {}       # manual "Run workflow" button
 
 permissions:

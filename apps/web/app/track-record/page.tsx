@@ -36,7 +36,7 @@ export default function TrackRecordPage() {
           </div>
           <div className="card overflow-x-auto">
             <table className="w-full text-sm">
-              <thead className="bg-slate-50 text-[11px] uppercase text-slate-400">
+              <thead className="text-[11px] uppercase text-slate-400">
                 <tr>
                   <th className="px-3 py-2 text-left font-medium">Date</th>
                   <th className="px-3 py-2 text-left font-medium">Match</th>
@@ -46,9 +46,9 @@ export default function TrackRecordPage() {
                   <th className="px-2 py-2 text-center font-medium">Hit</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-50">
+              <tbody className="divide-y divide-white/5">
                 {tr.matches?.map((x: any, i: number) => (
-                  <tr key={i} className="hover:bg-slate-50">
+                  <tr key={i} className="hover:bg-white/5">
                     <td className="px-3 py-1.5 text-xs text-slate-400">{x.date}</td>
                     <td className="px-3 py-1.5">{x.home} vs {x.away}</td>
                     <td className="px-2 text-center font-mono">{x.score}</td>

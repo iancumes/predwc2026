@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import "./globals.css";
+import NavBar from "./components/NavBar";
+import { TeamPeekProvider } from "./components/TeamModal";
 
 export const metadata: Metadata = {
   title: "World Cup 2026 Predictor",
@@ -9,48 +10,46 @@ export const metadata: Metadata = {
     "Probabilities are estimates, not guarantees.",
 };
 
-const NAV = [
-  { href: "/", label: "Home" },
-  { href: "/matches", label: "Matches" },
-  { href: "/groups", label: "Groups" },
-  { href: "/bracket", label: "Bracket" },
-  { href: "/teams", label: "Teams" },
-  { href: "/track-record", label: "Track record" },
-  { href: "/methodology", label: "Methodology" },
-];
-
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
+      <head>
+        {/* Distinctive type pairing loaded at runtime (no build-time fetch). */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
+        {/* eslint-disable-next-line react/no-unknown-property */}
+        <style>{`:root{--font-display:'Sora';--font-sans:'Inter';}`}</style>
+      </head>
       <body>
-        <header className="bg-pitch text-white">
-          <nav className="mx-auto flex max-w-6xl flex-wrap items-center gap-x-5 gap-y-2 px-4 py-3">
-            <Link href="/" className="mr-2 text-lg font-bold tracking-tight">
-              ⚽ WC2026 <span className="text-accent-soft">Predictor</span>
-            </Link>
-            <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm">
-              {NAV.slice(1).map((n) => (
-                <Link key={n.href} href={n.href} className="opacity-90 hover:opacity-100 hover:underline">
-                  {n.label}
-                </Link>
-              ))}
+        <TeamPeekProvider>
+          <NavBar />
+          <main className="mx-auto max-w-6xl px-4 py-8">{children}</main>
+          <footer className="mt-16 border-t border-white/10 bg-base-900/60">
+            <div className="mx-auto max-w-6xl px-4 py-8 text-xs text-slate-400">
+              <div className="flex items-center gap-2 text-sm font-semibold text-slate-200">
+                <span className="grid h-6 w-6 place-items-center rounded-md bg-brand-gradient text-xs">
+                  ⚽
+                </span>
+                WC26 Predictor
+              </div>
+              <p className="mt-2 max-w-3xl">
+                This platform is analytical and informational only. Predicted
+                probabilities are model estimates with uncertainty — not
+                guarantees, betting advice, or a promise of any outcome.
+              </p>
+              <p className="mt-2 text-slate-500">
+                Data: martj42/international_results (CC0). Built with Elo,
+                Poisson, Dixon–Coles, gradient boosting and a calibrated
+                ensemble. Flags by flagcdn.com. Auto-refreshed twice daily
+                (08:00 &amp; 23:59 Guatemala time).
+              </p>
             </div>
-          </nav>
-        </header>
-        <main className="mx-auto max-w-6xl px-4 py-6">{children}</main>
-        <footer className="mt-12 border-t border-slate-200 bg-white">
-          <div className="mx-auto max-w-6xl px-4 py-6 text-xs text-slate-500">
-            <p className="font-medium text-slate-600">
-              This platform is analytical and informational only.
-            </p>
-            <p>
-              Predicted probabilities are model estimates with uncertainty — not
-              guarantees, betting advice, or a promise of any outcome. Data:
-              martj42/international_results (CC0). Built with Elo, Poisson,
-              Dixon–Coles, gradient boosting and a calibrated ensemble.
-            </p>
-          </div>
-        </footer>
+          </footer>
+        </TeamPeekProvider>
       </body>
     </html>
   );

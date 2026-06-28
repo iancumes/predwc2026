@@ -88,3 +88,24 @@ adapter. Status: done.
 - **Random-walk train/test split** — rejected (temporal leakage); walk-forward only.
 - **Player/injury features** — deferred until a reliable, licensed feed exists;
   the system runs without them.
+
+## D-010 Dark broadcast UI + client-side flags/animations (no new deps)
+The web app moved to a dark, animated "broadcast graphics" theme to shed the
+generic look. Animations are pure CSS/Tailwind keyframes and the team-peek modal
+is a small React context — deliberately **no animation library** (framer-motion
+etc.) to keep the static export light and the build dependency-free. Flags are
+served from flagcdn.com (real SVG/PNG, cross-OS consistent) with an initials
+fallback, rather than emoji flags (which don't render on Windows). Fonts load via
+a runtime Google Fonts `<link>` instead of `next/font` to avoid build-time
+network fetches. Status: done.
+
+## D-011 Knockout bracket resolves only locked group slots
+The bracket tree renders the official 2026 structure (R32→Final) and fills a slot
+with the real nation only when its group is mathematically decided
+(`p_win_group`/`p_runner_up` ∈ {0,1}); third-placed and winner/loser slots stay
+as labelled placeholders until determined. Rationale: never show a team in a slot
+it isn't guaranteed. Status: done.
+
+## D-012 Result-refresh schedule in Guatemala time
+Auto-update cron pinned to America/Guatemala: 08:00 and 23:59 local
+(`0 14 * * *`, `59 5 * * *` UTC). Status: done.

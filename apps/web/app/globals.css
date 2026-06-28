@@ -3,21 +3,108 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: light;
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  @apply bg-slate-50 text-ink antialiased;
+  @apply bg-base text-slate-100 antialiased;
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  /* Layered ambient glow + faint grid: a "broadcast graphics" backdrop. */
+  background-color: #070b16;
+  background-image:
+    radial-gradient(70rem 40rem at 12% -10%, rgba(34, 211, 166, 0.12), transparent 60%),
+    radial-gradient(60rem 40rem at 100% 0%, rgba(56, 189, 248, 0.1), transparent 55%),
+    radial-gradient(50rem 40rem at 50% 120%, rgba(168, 85, 247, 0.1), transparent 55%);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-display), var(--font-sans), system-ui, sans-serif;
+  letter-spacing: -0.02em;
 }
 
 @layer components {
+  /* Glassy surface — the workhorse container. */
   .card {
-    @apply rounded-xl border border-slate-200 bg-white shadow-sm;
+    @apply rounded-2xl border border-white/10 bg-white/[0.04] shadow-card backdrop-blur-xl;
+  }
+  .card-hover {
+    @apply transition-all duration-300 hover:-translate-y-0.5 hover:border-brand/40 hover:bg-white/[0.06] hover:shadow-glow;
   }
   .chip {
-    @apply inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium;
+    @apply inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-[11px] font-semibold;
   }
   .prob-bar {
-    @apply h-2 rounded-full overflow-hidden bg-slate-100 flex;
+    @apply flex h-2.5 overflow-hidden rounded-full bg-white/10;
+  }
+  .gradient-text {
+    @apply bg-brand-gradient bg-clip-text text-transparent;
+  }
+  /* Pill nav links */
+  .nav-link {
+    @apply rounded-full px-3 py-1.5 text-sm text-slate-300 transition-colors hover:bg-white/10 hover:text-white;
+  }
+  .nav-link-active {
+    @apply bg-white/10 text-white shadow-[inset_0_0_0_1px_rgba(34,211,166,0.3)];
+  }
+  /* Section eyebrow */
+  .eyebrow {
+    @apply text-[11px] font-semibold uppercase tracking-[0.2em] text-brand-300;
+  }
+  .skeleton {
+    @apply animate-pulse rounded-md bg-white/10;
+  }
+}
+
+@layer utilities {
+  .tnum {
+    font-variant-numeric: tabular-nums;
+  }
+  /* Stagger helper: set --i on children for sequential entrances. */
+  .stagger > * {
+    animation: fade-up 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: calc(var(--i, 0) * 55ms);
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Custom scrollbar for the dark theme. */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(34, 211, 166, 0.4);
+  background-clip: content-box;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
   }
 }
