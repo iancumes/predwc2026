@@ -57,3 +57,35 @@ scheduled post-matchday re-simulation. Core is complete and validated.
 - Model layer: base interface, Elo (online pre-match ratings), features (as_of),
   Poisson, Dixon–Coles (MLE + analytic gradient + time decay), boosting, ensemble,
   calibration.
+
+---
+
+## Web UI redesign — interactive broadcast theme (2026-06-28)
+
+Reworked `apps/web` from the generic light-theme scaffold into a distinctive,
+animated, broadcast-style product:
+
+- **Design system** (`globals.css`, `tailwind.config.ts`): dark "stadium at
+  night" surface palette, signature emerald→cyan→violet brand gradient, glass
+  cards, ambient glow backdrop, Sora/Inter type pairing (loaded at runtime via
+  Google Fonts `<link>`, no build-time fetch), reusable keyframes (fade-up,
+  scale-in, bar-grow, stagger, float) with a `prefers-reduced-motion` guard.
+- **Country flags** (`app/lib/flags.ts` + `Flag` component): every team shows
+  its national flag (flagcdn.com SVG/PNG, incl. gb-eng/gb-sct) with a robust
+  initials fallback on missing mapping *or* image load error.
+- **Interactive team peek** (`app/components/TeamModal.tsx`): a global, animated
+  modal opened by tapping any team anywhere — title odds, round-by-round
+  progression bars, recent W/D/L form strip, and group fixtures, with Escape /
+  backdrop close and scroll lock.
+- **Knockout bracket** (`app/bracket/page.tsx`): a horizontally-scrollable
+  bracket tree from the Round of 32 → Final (+ third-place play-off) with flags;
+  group slots resolve to the real qualified nation once a group is mathematically
+  locked, the rest show clear placeholders. A toggle flips to the reach-odds
+  heatmap.
+- Refreshed Home (hero + podium), Matches (scoreboard header), Groups, Teams
+  (search + click-to-peek), and the team/match detail pages for the dark theme.
+- `make build-web` passes (146 static routes exported).
+
+## Auto-refresh schedule → Guatemala time
+`.github/workflows/update.yml` cron pinned to America/Guatemala (UTC-6, no DST):
+`0 14 * * *` (08:00 GT) and `59 5 * * *` (23:59 GT).
