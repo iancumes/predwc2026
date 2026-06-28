@@ -124,7 +124,13 @@ def freeze_world_cup(matches: pd.DataFrame, tournament: Tournament,
             r = json.loads(line)
             existing[(r["match_id"], r["model_version_id"])] = r
 
+    # Predict the whole tournament: group stage *and* the live knockout ties
+    # (the latter live in a separate frame since they're cross-group fixtures).
     fixtures = tournament.fixtures
+    if len(getattr(tournament, "knockout_fixtures", [])):
+        fixtures = pd.concat(
+            [tournament.fixtures, tournament.knockout_fixtures], ignore_index=True
+        )
     new_rows: list[dict] = []
 
     # --- played matches: per-matchday pre-kickoff predictions (track record) ---

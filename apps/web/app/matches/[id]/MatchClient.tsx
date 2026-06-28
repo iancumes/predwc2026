@@ -27,7 +27,8 @@ export default function MatchClient({ id }: { id: string }) {
         <div className="pointer-events-none absolute -top-16 left-1/2 h-40 w-40 -translate-x-1/2 rounded-full bg-brand/15 blur-3xl" />
         <div className="relative">
           <div className="mb-4 text-center text-xs text-slate-400">
-            Group {data.group} · {data.date} · {data.neutral ? "neutral venue" : data.country}
+            {data.stage ? data.stage : `Group ${data.group}`} · {data.date} ·{" "}
+            {data.neutral ? "neutral venue" : data.country}
           </div>
           <div className="flex items-center justify-center gap-4 sm:gap-8">
             <button onClick={() => open(homeCode)} className="flex flex-1 flex-col items-center gap-2 transition hover:text-brand">

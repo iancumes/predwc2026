@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import { api, pct } from "../lib/api";
 import { Loading, ErrorState, Flag, TeamButton } from "../components/ui";
 import { useTeamPeek } from "../components/TeamModal";
@@ -28,6 +29,7 @@ type MatchEntry = {
   winner_code: string | null;
   status: "played" | "scheduled" | "pending";
   date: string | null;
+  match_id: string | null;
 };
 
 export default function BracketPage() {
@@ -188,21 +190,33 @@ function MatchCard({
   delay: number;
   champion?: boolean;
 }) {
+  const router = useRouter();
   const played = m.status === "played";
+  const hasPred = !!m.match_id; // a real fixture exists -> full prediction page
   return (
     <div
       style={{ animationDelay: `${delay}ms` }}
-      className={`animate-scale-in overflow-hidden rounded-xl border shadow-card transition-colors ${
+      onClick={hasPred ? () => router.push(`/matches/${m.match_id}`) : undefined}
+      className={`group/card animate-scale-in overflow-hidden rounded-xl border shadow-card transition-colors ${
+        hasPred ? "cursor-pointer" : ""
+      } ${
         played ? "border-brand/30 bg-white/[0.05]" : "border-white/10 bg-white/[0.03] hover:border-brand/30"
       }`}
     >
       <div className="flex items-center justify-between border-b border-white/5 px-2.5 py-1 text-[10px] uppercase tracking-wide text-slate-500">
         <span>Match {m.match}</span>
-        {champion ? (
-          <span className="text-gold">🏆 Final</span>
-        ) : m.date ? (
-          <span>{played ? "FT" : m.date.slice(5)}</span>
-        ) : null}
+        <span className="flex items-center gap-1.5">
+          {champion ? (
+            <span className="text-gold">🏆 Final</span>
+          ) : m.date ? (
+            <span>{played ? "FT" : m.date.slice(5)}</span>
+          ) : null}
+          {hasPred && (
+            <span className="text-brand-300 opacity-0 transition-opacity group-hover/card:opacity-100">
+              stats →
+            </span>
+          )}
+        </span>
       </div>
       <SlotRow
         team={m.team1}
@@ -249,7 +263,10 @@ function SlotRow({
   if (team) {
     return (
       <button
-        onClick={() => open(team.code)}
+        onClick={(e) => {
+          e.stopPropagation();
+          open(team.code);
+        }}
         className={`flex w-full items-center gap-2 px-3 py-2 text-left text-sm transition-colors hover:bg-white/5 ${
           isWinner ? "bg-brand/10" : ""
         } ${isLoser ? "opacity-55" : ""}`}
