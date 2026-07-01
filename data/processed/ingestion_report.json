@@ -4,12 +4,12 @@
   "dropped_negative_scores": 0,
   "dropped_self_matches": 0,
   "dropped_duplicates": 0,
-  "rows_in": 49492,
-  "rows_out": 49492,
+  "rows_in": 49494,
+  "rows_out": 49494,
   "source": "martj42/international_results",
   "n_teams": 336,
   "date_min": "1872-11-30",
-  "date_max": "2026-07-04",
-  "n_played": 49479,
-  "n_scheduled": 13
+  "date_max": "2026-07-05",
+  "n_played": 49482,
+  "n_scheduled": 12
 }
