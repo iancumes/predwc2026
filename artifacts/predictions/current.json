@@ -7360,119 +7360,119 @@
     "away_score": 3
   },
   {
-    "prediction_id": "849c33f834b02549",
+    "prediction_id": "b1e9e4b82167263d",
     "match_id": "53b2989f2037a854",
-    "model_version_id": "production_ensemble-4b7b0d00cb",
+    "model_version_id": "production_ensemble-68e0329346",
     "data_cutoff": "2026-07-05",
-    "created_at": "2026-07-06T10:25:09.456476+00:00",
+    "created_at": "2026-07-06T17:00:38.800929+00:00",
     "date": "2026-07-06",
     "home_team": "United States",
     "away_team": "Belgium",
-    "home_win_probability": 0.2155,
-    "draw_probability": 0.2823,
-    "away_win_probability": 0.5023,
-    "expected_home_goals": 1.261,
-    "expected_away_goals": 1.895,
-    "expected_total_goals": 3.157,
+    "home_win_probability": 0.2108,
+    "draw_probability": 0.2685,
+    "away_win_probability": 0.5207,
+    "expected_home_goals": 1.253,
+    "expected_away_goals": 1.896,
+    "expected_total_goals": 3.149,
     "most_likely_score": "1-1",
-    "over_2_5": 0.6109,
-    "btts_yes": 0.6111,
-    "btts_no": 0.3889,
+    "over_2_5": 0.6094,
+    "btts_yes": 0.6095,
+    "btts_no": 0.3905,
     "over_under": {
-      "0.5": 0.9535,
-      "1.5": 0.827,
-      "2.5": 0.6109,
-      "3.5": 0.3878
+      "0.5": 0.9532,
+      "1.5": 0.826,
+      "2.5": 0.6094,
+      "3.5": 0.3861
     },
     "total_goals_dist": [
-      0.0465,
-      0.1265,
-      0.216,
-      0.2231,
-      0.1761,
-      0.1112,
-      0.1005
+      0.0468,
+      0.1272,
+      0.2166,
+      0.2232,
+      0.1757,
+      0.1107,
+      0.0997
     ],
-    "home_clean_sheet": 0.1507,
-    "away_clean_sheet": 0.2847,
-    "home_win_to_nil": 0.1041,
-    "away_win_to_nil": 0.2382,
+    "home_clean_sheet": 0.1506,
+    "away_clean_sheet": 0.2867,
+    "home_win_to_nil": 0.1038,
+    "away_win_to_nil": 0.2399,
     "top_scorelines": [
       {
         "score": "1-1",
-        "prob": 0.1053
+        "prob": 0.1055
       },
       {
         "score": "1-2",
-        "prob": 0.096
+        "prob": 0.0962
       },
       {
         "score": "0-1",
-        "prob": 0.0769
+        "prob": 0.0774
       },
       {
         "score": "0-2",
-        "prob": 0.0768
+        "prob": 0.0773
       },
       {
         "score": "2-1",
-        "prob": 0.064
+        "prob": 0.0637
       },
       {
         "score": "1-3",
-        "prob": 0.0607
+        "prob": 0.0609
       }
     ],
     "scorers": [
       {
         "player": "Folarin Balogun",
         "team": "United States",
-        "prob": 0.1376
+        "prob": 0.1368
       },
       {
         "player": "Jes\u00fas Ferreira",
         "team": "United States",
-        "prob": 0.1126
+        "prob": 0.1119
       },
       {
         "player": "Malik Tillman",
         "team": "United States",
-        "prob": 0.1103
+        "prob": 0.1096
       },
       {
         "player": "Christian Pulisic",
         "team": "United States",
-        "prob": 0.0828
+        "prob": 0.0823
       },
       {
         "player": "Diego Luna",
         "team": "United States",
-        "prob": 0.0784
+        "prob": 0.0779
       },
       {
         "player": "Chris Richards",
         "team": "United States",
-        "prob": 0.0528
+        "prob": 0.0525
       },
       {
         "player": "Patrick Agyemang",
         "team": "United States",
-        "prob": 0.0525
+        "prob": 0.0522
       },
       {
         "player": "Brandon V\u00e1zquez",
         "team": "United States",
-        "prob": 0.0455
+        "prob": 0.0452
       },
       {
         "player": "Brenden Aaronson",
         "team": "United States",
-        "prob": 0.0445
+        "prob": 0.0442
       },
       {
         "player": "Haji Wright",
         "team": "United States",
-        "prob": 0.0393
+        "prob": 0.039
       },
       {
         "player": "Romelu Lukaku",
@@ -7482,7 +7482,7 @@
       {
         "player": "Kevin De Bruyne",
         "team": "Belgium",
-        "prob": 0.2349
+        "prob": 0.235
       },
       {
         "player": "Youri Tielemans",
@@ -7497,7 +7497,7 @@
       {
         "player": "J\u00e9r\u00e9my Doku",
         "team": "Belgium",
-        "prob": 0.1219
+        "prob": 0.122
       },
       {
         "player": "Maxim De Cuyper",
@@ -7507,7 +7507,7 @@
       {
         "player": "Charles De Ketelaere",
         "team": "Belgium",
-        "prob": 0.0679
+        "prob": 0.068
       },
       {
         "player": "Hans Vanaken",
@@ -7526,7 +7526,7 @@
       }
     ],
     "factors": {
-      "expected_home_goals": 1.26,
+      "expected_home_goals": 1.25,
       "expected_away_goals": 1.9,
       "neutral_venue": false,
       "home_is_host": true,
@@ -7541,55 +7541,55 @@
     "away_score": null
   },
   {
-    "prediction_id": "c82a0f96d140dd27",
+    "prediction_id": "74f49cbb7d09003c",
     "match_id": "a7388424034b5037",
-    "model_version_id": "production_ensemble-4b7b0d00cb",
+    "model_version_id": "production_ensemble-68e0329346",
     "data_cutoff": "2026-07-05",
-    "created_at": "2026-07-06T10:25:09.456476+00:00",
+    "created_at": "2026-07-06T17:00:38.800929+00:00",
     "date": "2026-07-06",
     "home_team": "Portugal",
     "away_team": "Spain",
-    "home_win_probability": 0.2058,
-    "draw_probability": 0.3656,
-    "away_win_probability": 0.4286,
-    "expected_home_goals": 0.994,
-    "expected_away_goals": 1.498,
-    "expected_total_goals": 2.492,
+    "home_win_probability": 0.1819,
+    "draw_probability": 0.3755,
+    "away_win_probability": 0.4426,
+    "expected_home_goals": 0.989,
+    "expected_away_goals": 1.5,
+    "expected_total_goals": 2.488,
     "most_likely_score": "1-1",
-    "over_2_5": 0.454,
-    "btts_yes": 0.4919,
-    "btts_no": 0.5081,
+    "over_2_5": 0.453,
+    "btts_yes": 0.4904,
+    "btts_no": 0.5096,
     "over_under": {
-      "0.5": 0.9121,
-      "1.5": 0.7158,
-      "2.5": 0.454,
-      "3.5": 0.2409
+      "0.5": 0.9118,
+      "1.5": 0.715,
+      "2.5": 0.453,
+      "3.5": 0.24
     },
     "total_goals_dist": [
-      0.0879,
-      0.1963,
-      0.2617,
-      0.2132,
-      0.1329,
-      0.0663,
-      0.0417
+      0.0882,
+      0.1968,
+      0.262,
+      0.2131,
+      0.1326,
+      0.066,
+      0.0414
     ],
-    "home_clean_sheet": 0.2253,
-    "away_clean_sheet": 0.3707,
-    "home_win_to_nil": 0.1374,
-    "away_win_to_nil": 0.2828,
+    "home_clean_sheet": 0.225,
+    "away_clean_sheet": 0.3729,
+    "home_win_to_nil": 0.1367,
+    "away_win_to_nil": 0.2847,
     "top_scorelines": [
       {
         "score": "1-1",
-        "prob": 0.1277
+        "prob": 0.1276
       },
       {
         "score": "0-1",
-        "prob": 0.1185
+        "prob": 0.1192
       },
       {
         "score": "0-2",
-        "prob": 0.0926
+        "prob": 0.0932
       },
       {
         "score": "1-2",
@@ -7597,93 +7597,93 @@
       },
       {
         "score": "0-0",
-        "prob": 0.0879
+        "prob": 0.0882
       },
       {
         "score": "1-0",
-        "prob": 0.0778
+        "prob": 0.0776
       }
     ],
     "scorers": [
       {
         "player": "Cristiano Ronaldo",
         "team": "Portugal",
-        "prob": 0.2502
+        "prob": 0.2491
       },
       {
         "player": "Bruno Fernandes",
         "team": "Portugal",
-        "prob": 0.1169
+        "prob": 0.1163
       },
       {
         "player": "Gon\u00e7alo Ramos",
         "team": "Portugal",
-        "prob": 0.0671
+        "prob": 0.0668
       },
       {
         "player": "Jo\u00e3o F\u00e9lix",
         "team": "Portugal",
-        "prob": 0.058
+        "prob": 0.0577
       },
       {
         "player": "Jo\u00e3o Cancelo",
         "team": "Portugal",
-        "prob": 0.0509
+        "prob": 0.0506
       },
       {
         "player": "Bernardo Silva",
         "team": "Portugal",
-        "prob": 0.0495
+        "prob": 0.0492
       },
       {
         "player": "Jo\u00e3o Neves",
         "team": "Portugal",
-        "prob": 0.0475
+        "prob": 0.0472
       },
       {
         "player": "Diogo Jota",
         "team": "Portugal",
-        "prob": 0.0452
+        "prob": 0.0449
       },
       {
         "player": "Rafael Le\u00e3o",
         "team": "Portugal",
-        "prob": 0.0375
+        "prob": 0.0373
       },
       {
         "player": "Francisco Concei\u00e7\u00e3o",
         "team": "Portugal",
-        "prob": 0.0293
+        "prob": 0.0291
       },
       {
         "player": "Mikel Oyarzabal",
         "team": "Spain",
-        "prob": 0.2399
+        "prob": 0.2401
       },
       {
         "player": "Ferran Torres",
         "team": "Spain",
-        "prob": 0.1434
+        "prob": 0.1436
       },
       {
         "player": "Mikel Merino",
         "team": "Spain",
-        "prob": 0.1359
+        "prob": 0.136
       },
       {
         "player": "\u00c1lvaro Morata",
         "team": "Spain",
-        "prob": 0.117
+        "prob": 0.1171
       },
       {
         "player": "Lamine Yamal",
         "team": "Spain",
-        "prob": 0.0895
+        "prob": 0.0896
       },
       {
         "player": "Dani Olmo",
         "team": "Spain",
-        "prob": 0.0813
+        "prob": 0.0814
       },
       {
         "player": "Nico Williams",
@@ -7722,154 +7722,154 @@
     "away_score": null
   },
   {
-    "prediction_id": "7e19c7a99c329dff",
+    "prediction_id": "86794e6ae760fe74",
     "match_id": "56344ec38d12d6f2",
-    "model_version_id": "production_ensemble-4b7b0d00cb",
+    "model_version_id": "production_ensemble-68e0329346",
     "data_cutoff": "2026-07-05",
-    "created_at": "2026-07-06T10:25:09.456476+00:00",
+    "created_at": "2026-07-06T17:00:38.800929+00:00",
     "date": "2026-07-06",
     "home_team": "Argentina",
     "away_team": "Egypt",
-    "home_win_probability": 0.8085,
-    "draw_probability": 0.1526,
-    "away_win_probability": 0.0389,
-    "expected_home_goals": 1.978,
-    "expected_away_goals": 0.556,
-    "expected_total_goals": 2.534,
+    "home_win_probability": 0.8081,
+    "draw_probability": 0.1528,
+    "away_win_probability": 0.0391,
+    "expected_home_goals": 1.941,
+    "expected_away_goals": 0.554,
+    "expected_total_goals": 2.495,
     "most_likely_score": "1-0",
-    "over_2_5": 0.4503,
-    "btts_yes": 0.3626,
-    "btts_no": 0.6374,
+    "over_2_5": 0.4426,
+    "btts_yes": 0.3601,
+    "btts_no": 0.6399,
     "over_under": {
-      "0.5": 0.898,
-      "1.5": 0.6934,
-      "2.5": 0.4503,
-      "3.5": 0.2576
+      "0.5": 0.8964,
+      "1.5": 0.6885,
+      "2.5": 0.4426,
+      "3.5": 0.2492
     },
     "total_goals_dist": [
-      0.102,
-      0.2046,
-      0.243,
-      0.1927,
-      0.1255,
-      0.0706,
-      0.0615
+      0.1036,
+      0.2079,
+      0.2459,
+      0.1934,
+      0.1241,
+      0.0683,
+      0.0568
     ],
-    "home_clean_sheet": 0.5814,
-    "away_clean_sheet": 0.158,
-    "home_win_to_nil": 0.4794,
-    "away_win_to_nil": 0.056,
+    "home_clean_sheet": 0.5827,
+    "away_clean_sheet": 0.1607,
+    "home_win_to_nil": 0.4792,
+    "away_win_to_nil": 0.0572,
     "top_scorelines": [
       {
         "score": "1-0",
-        "prob": 0.1623
+        "prob": 0.1648
       },
       {
         "score": "2-0",
-        "prob": 0.1466
+        "prob": 0.1479
       },
       {
         "score": "0-0",
-        "prob": 0.102
+        "prob": 0.1036
       },
       {
         "score": "3-0",
-        "prob": 0.0919
+        "prob": 0.0915
       },
       {
         "score": "1-1",
-        "prob": 0.0851
+        "prob": 0.0864
       },
       {
         "score": "2-1",
-        "prob": 0.0772
+        "prob": 0.0777
       }
     ],
     "scorers": [
       {
         "player": "Lionel Messi",
         "team": "Argentina",
-        "prob": 0.5003
+        "prob": 0.4938
       },
       {
         "player": "Lautaro Mart\u00ednez",
         "team": "Argentina",
-        "prob": 0.3071
+        "prob": 0.3023
       },
       {
         "player": "Juli\u00e1n \u00c1lvarez",
         "team": "Argentina",
-        "prob": 0.1962
+        "prob": 0.1929
       },
       {
         "player": "Thiago Almada",
         "team": "Argentina",
-        "prob": 0.0776
+        "prob": 0.0762
       },
       {
         "player": "\u00c1ngel Di Mar\u00eda",
         "team": "Argentina",
-        "prob": 0.068
+        "prob": 0.0668
       },
       {
         "player": "Nicol\u00e1s Gonz\u00e1lez",
         "team": "Argentina",
-        "prob": 0.0671
+        "prob": 0.0658
       },
       {
         "player": "Alexis Mac Allister",
         "team": "Argentina",
-        "prob": 0.0632
+        "prob": 0.0621
       },
       {
         "player": "Lisandro Mart\u00ednez",
         "team": "Argentina",
-        "prob": 0.0599
+        "prob": 0.0588
       },
       {
         "player": "Nicol\u00e1s Otamendi",
         "team": "Argentina",
-        "prob": 0.0594
+        "prob": 0.0584
       },
       {
         "player": "Enzo Fern\u00e1ndez",
         "team": "Argentina",
-        "prob": 0.0579
+        "prob": 0.0568
       },
       {
         "player": "Mohamed Salah",
         "team": "Egypt",
-        "prob": 0.1697
+        "prob": 0.1692
       },
       {
         "player": "Tr\u00e9z\u00e9guet",
         "team": "Egypt",
-        "prob": 0.0699
+        "prob": 0.0696
       },
       {
         "player": "Omar Marmoush",
         "team": "Egypt",
-        "prob": 0.0536
+        "prob": 0.0534
       },
       {
         "player": "Mostafa Mohamed",
         "team": "Egypt",
-        "prob": 0.0491
+        "prob": 0.0489
       },
       {
         "player": "Emam Ashour",
         "team": "Egypt",
-        "prob": 0.0327
+        "prob": 0.0326
       },
       {
         "player": "Ahmed Sayed",
         "team": "Egypt",
-        "prob": 0.0231
+        "prob": 0.023
       }
     ],
     "factors": {
-      "expected_home_goals": 1.98,
-      "expected_away_goals": 0.56,
+      "expected_home_goals": 1.94,
+      "expected_away_goals": 0.55,
       "neutral_venue": true,
       "home_is_host": false,
       "away_is_host": false,
@@ -7883,119 +7883,119 @@
     "away_score": null
   },
   {
-    "prediction_id": "33b42c8e5487fd9c",
+    "prediction_id": "0fc93e4b43065bfa",
     "match_id": "938714f1140c61a0",
-    "model_version_id": "production_ensemble-4b7b0d00cb",
+    "model_version_id": "production_ensemble-68e0329346",
     "data_cutoff": "2026-07-05",
-    "created_at": "2026-07-06T10:25:09.456476+00:00",
+    "created_at": "2026-07-06T17:00:38.800929+00:00",
     "date": "2026-07-06",
     "home_team": "Switzerland",
     "away_team": "Colombia",
-    "home_win_probability": 0.2437,
-    "draw_probability": 0.3418,
-    "away_win_probability": 0.4144,
-    "expected_home_goals": 1.068,
-    "expected_away_goals": 1.394,
-    "expected_total_goals": 2.462,
+    "home_win_probability": 0.2492,
+    "draw_probability": 0.337,
+    "away_win_probability": 0.4138,
+    "expected_home_goals": 1.054,
+    "expected_away_goals": 1.395,
+    "expected_total_goals": 2.449,
     "most_likely_score": "1-1",
-    "over_2_5": 0.4464,
-    "btts_yes": 0.4983,
-    "btts_no": 0.5017,
+    "over_2_5": 0.443,
+    "btts_yes": 0.495,
+    "btts_no": 0.505,
     "over_under": {
-      "0.5": 0.9097,
-      "1.5": 0.7098,
-      "2.5": 0.4464,
-      "3.5": 0.2343
+      "0.5": 0.9086,
+      "1.5": 0.707,
+      "2.5": 0.443,
+      "3.5": 0.2316
     },
     "total_goals_dist": [
-      0.0903,
-      0.2,
-      0.2634,
-      0.2121,
-      0.1305,
-      0.0643,
-      0.0395
+      0.0914,
+      0.2016,
+      0.264,
+      0.2115,
+      0.1295,
+      0.0634,
+      0.0387
     ],
     "home_clean_sheet": 0.248,
-    "away_clean_sheet": 0.344,
-    "home_win_to_nil": 0.1577,
-    "away_win_to_nil": 0.2537,
+    "away_clean_sheet": 0.3484,
+    "home_win_to_nil": 0.1566,
+    "away_win_to_nil": 0.2571,
     "top_scorelines": [
       {
         "score": "1-1",
-        "prob": 0.1319
+        "prob": 0.132
       },
       {
         "score": "0-1",
-        "prob": 0.1139
+        "prob": 0.1155
       },
       {
         "score": "0-0",
-        "prob": 0.0903
+        "prob": 0.0914
       },
       {
         "score": "1-2",
-        "prob": 0.0885
+        "prob": 0.0886
       },
       {
         "score": "1-0",
-        "prob": 0.086
+        "prob": 0.0861
       },
       {
         "score": "0-2",
-        "prob": 0.0829
+        "prob": 0.084
       }
     ],
     "scorers": [
       {
         "player": "Breel Embolo",
         "team": "Switzerland",
-        "prob": 0.1754
+        "prob": 0.1734
       },
       {
         "player": "Rub\u00e9n Vargas",
         "team": "Switzerland",
-        "prob": 0.1046
+        "prob": 0.1034
       },
       {
         "player": "Johan Manzambi",
         "team": "Switzerland",
-        "prob": 0.0968
+        "prob": 0.0957
       },
       {
         "player": "Zeki Amdouni",
         "team": "Switzerland",
-        "prob": 0.0921
+        "prob": 0.0911
       },
       {
         "player": "Granit Xhaka",
         "team": "Switzerland",
-        "prob": 0.0741
+        "prob": 0.0732
       },
       {
         "player": "Remo Freuler",
         "team": "Switzerland",
-        "prob": 0.0732
+        "prob": 0.0724
       },
       {
         "player": "Dan Ndoye",
         "team": "Switzerland",
-        "prob": 0.068
+        "prob": 0.0672
       },
       {
         "player": "Xherdan Shaqiri",
         "team": "Switzerland",
-        "prob": 0.06
+        "prob": 0.0592
       },
       {
         "player": "Manuel Akanji",
         "team": "Switzerland",
-        "prob": 0.0425
+        "prob": 0.042
       },
       {
         "player": "Silvan Widmer",
         "team": "Switzerland",
-        "prob": 0.0359
+        "prob": 0.0354
       },
       {
         "player": "Luis D\u00edaz",
@@ -8049,7 +8049,7 @@
       }
     ],
     "factors": {
-      "expected_home_goals": 1.07,
+      "expected_home_goals": 1.05,
       "expected_away_goals": 1.39,
       "neutral_venue": true,
       "home_is_host": false,
@@ -8064,119 +8064,119 @@
     "away_score": null
   },
   {
-    "prediction_id": "84d52a91e324485e",
+    "prediction_id": "93092218270b9216",
     "match_id": "b116b23762a2ee3b",
-    "model_version_id": "production_ensemble-4b7b0d00cb",
+    "model_version_id": "production_ensemble-68e0329346",
     "data_cutoff": "2026-07-05",
-    "created_at": "2026-07-06T10:25:09.456476+00:00",
+    "created_at": "2026-07-06T17:00:38.800929+00:00",
     "date": "2026-07-09",
     "home_team": "France",
     "away_team": "Morocco",
-    "home_win_probability": 0.4192,
+    "home_win_probability": 0.4208,
     "draw_probability": 0.402,
-    "away_win_probability": 0.1788,
-    "expected_home_goals": 1.255,
-    "expected_away_goals": 0.876,
-    "expected_total_goals": 2.131,
+    "away_win_probability": 0.1772,
+    "expected_home_goals": 1.279,
+    "expected_away_goals": 0.875,
+    "expected_total_goals": 2.154,
     "most_likely_score": "1-0",
-    "over_2_5": 0.3568,
-    "btts_yes": 0.4168,
-    "btts_no": 0.5832,
+    "over_2_5": 0.3624,
+    "btts_yes": 0.4194,
+    "btts_no": 0.5806,
     "over_under": {
-      "0.5": 0.8666,
-      "1.5": 0.6224,
-      "2.5": 0.3568,
-      "3.5": 0.1731
+      "0.5": 0.868,
+      "1.5": 0.6264,
+      "2.5": 0.3624,
+      "3.5": 0.1784
     },
     "total_goals_dist": [
-      0.1334,
-      0.2443,
-      0.2656,
-      0.1836,
-      0.1006,
-      0.0458,
-      0.0268
+      0.132,
+      0.2416,
+      0.2639,
+      0.184,
+      0.1023,
+      0.0474,
+      0.0287
     ],
-    "home_clean_sheet": 0.4189,
-    "away_clean_sheet": 0.2976,
-    "home_win_to_nil": 0.2856,
-    "away_win_to_nil": 0.1642,
+    "home_clean_sheet": 0.4191,
+    "away_clean_sheet": 0.2935,
+    "home_win_to_nil": 0.2871,
+    "away_win_to_nil": 0.1615,
     "top_scorelines": [
       {
         "score": "1-0",
-        "prob": 0.142
+        "prob": 0.1409
       },
       {
         "score": "0-0",
-        "prob": 0.1334
+        "prob": 0.132
       },
       {
         "score": "1-1",
-        "prob": 0.1314
+        "prob": 0.1302
       },
       {
         "score": "0-1",
-        "prob": 0.1023
+        "prob": 0.1007
       },
       {
         "score": "2-0",
-        "prob": 0.0886
+        "prob": 0.089
       },
       {
         "score": "2-1",
-        "prob": 0.0781
+        "prob": 0.0785
       }
     ],
     "scorers": [
       {
         "player": "Kylian Mbapp\u00e9",
         "team": "France",
-        "prob": 0.3439
+        "prob": 0.3491
       },
       {
         "player": "Ousmane Demb\u00e9l\u00e9",
         "team": "France",
-        "prob": 0.104
+        "prob": 0.1058
       },
       {
         "player": "Randal Kolo Muani",
         "team": "France",
-        "prob": 0.0707
+        "prob": 0.072
       },
       {
         "player": "Bradley Barcola",
         "team": "France",
-        "prob": 0.0707
+        "prob": 0.072
       },
       {
         "player": "Olivier Giroud",
         "team": "France",
-        "prob": 0.0672
+        "prob": 0.0684
       },
       {
         "player": "Adrien Rabiot",
         "team": "France",
-        "prob": 0.0624
+        "prob": 0.0636
       },
       {
         "player": "Michael Olise",
         "team": "France",
-        "prob": 0.0548
+        "prob": 0.0558
       },
       {
         "player": "Karim Benzema",
         "team": "France",
-        "prob": 0.0472
+        "prob": 0.0481
       },
       {
         "player": "Antoine Griezmann",
         "team": "France",
-        "prob": 0.0454
+        "prob": 0.0463
       },
       {
         "player": "Jean-Philippe Mateta",
         "team": "France",
-        "prob": 0.0299
+        "prob": 0.0305
       },
       {
         "player": "Ayoub El Kaabi",
@@ -8230,7 +8230,7 @@
       }
     ],
     "factors": {
-      "expected_home_goals": 1.26,
+      "expected_home_goals": 1.28,
       "expected_away_goals": 0.88,
       "neutral_venue": true,
       "home_is_host": false,
@@ -8245,170 +8245,170 @@
     "away_score": null
   },
   {
-    "prediction_id": "1b264727785d96cc",
+    "prediction_id": "2a2b35e779d5f9bb",
     "match_id": "fd386ea9fb48e916",
-    "model_version_id": "production_ensemble-4b7b0d00cb",
+    "model_version_id": "production_ensemble-68e0329346",
     "data_cutoff": "2026-07-05",
-    "created_at": "2026-07-06T10:25:09.456476+00:00",
+    "created_at": "2026-07-06T17:00:38.800929+00:00",
     "date": "2026-07-11",
     "home_team": "Norway",
     "away_team": "England",
-    "home_win_probability": 0.197,
-    "draw_probability": 0.2688,
-    "away_win_probability": 0.5342,
-    "expected_home_goals": 1.02,
-    "expected_away_goals": 1.747,
-    "expected_total_goals": 2.768,
+    "home_win_probability": 0.1731,
+    "draw_probability": 0.275,
+    "away_win_probability": 0.5519,
+    "expected_home_goals": 1.033,
+    "expected_away_goals": 1.776,
+    "expected_total_goals": 2.808,
     "most_likely_score": "1-1",
-    "over_2_5": 0.5197,
-    "btts_yes": 0.5293,
-    "btts_no": 0.4707,
+    "over_2_5": 0.5295,
+    "btts_yes": 0.5365,
+    "btts_no": 0.4635,
     "over_under": {
-      "0.5": 0.9297,
-      "1.5": 0.7632,
-      "2.5": 0.5197,
-      "3.5": 0.3015
+      "0.5": 0.9325,
+      "1.5": 0.7704,
+      "2.5": 0.5295,
+      "3.5": 0.3104
     },
     "total_goals_dist": [
-      0.0703,
-      0.1665,
-      0.2435,
-      0.2182,
-      0.1513,
-      0.0849,
-      0.0654
+      0.0675,
+      0.1621,
+      0.2409,
+      0.2191,
+      0.154,
+      0.0876,
+      0.0688
     ],
-    "home_clean_sheet": 0.1804,
-    "away_clean_sheet": 0.3606,
-    "home_win_to_nil": 0.1101,
-    "away_win_to_nil": 0.2903,
+    "home_clean_sheet": 0.1747,
+    "away_clean_sheet": 0.3563,
+    "home_win_to_nil": 0.1071,
+    "away_win_to_nil": 0.2888,
     "top_scorelines": [
       {
         "score": "1-1",
-        "prob": 0.1162
+        "prob": 0.1149
       },
       {
         "score": "0-1",
-        "prob": 0.1049
+        "prob": 0.1026
       },
       {
         "score": "1-2",
-        "prob": 0.0956
+        "prob": 0.0962
       },
       {
         "score": "0-2",
-        "prob": 0.0937
+        "prob": 0.0932
       },
       {
         "score": "0-0",
-        "prob": 0.0703
+        "prob": 0.0675
       },
       {
         "score": "1-0",
-        "prob": 0.0616
+        "prob": 0.0595
       }
     ],
     "scorers": [
       {
         "player": "Erling Haaland",
         "team": "Norway",
-        "prob": 0.3994
+        "prob": 0.4031
       },
       {
         "player": "Alexander S\u00f8rloth",
         "team": "Norway",
-        "prob": 0.1254
+        "prob": 0.1268
       },
       {
         "player": "Thelo Aasgaard",
         "team": "Norway",
-        "prob": 0.0769
+        "prob": 0.0778
       },
       {
         "player": "Antonio Nusa",
         "team": "Norway",
-        "prob": 0.0708
+        "prob": 0.0717
       },
       {
         "player": "Mohamed Elyounoussi",
         "team": "Norway",
-        "prob": 0.0237
+        "prob": 0.024
       },
       {
         "player": "Felix Horn Myhre",
         "team": "Norway",
-        "prob": 0.0227
+        "prob": 0.0229
       },
       {
         "player": "J\u00f8rgen Strand Larsen",
         "team": "Norway",
-        "prob": 0.0214
+        "prob": 0.0217
       },
       {
         "player": "Martin \u00d8degaard",
         "team": "Norway",
-        "prob": 0.0203
+        "prob": 0.0206
       },
       {
         "player": "Harry Kane",
         "team": "England",
-        "prob": 0.469
+        "prob": 0.4745
       },
       {
         "player": "Jude Bellingham",
         "team": "England",
-        "prob": 0.1444
+        "prob": 0.1465
       },
       {
         "player": "Bukayo Saka",
         "team": "England",
-        "prob": 0.1193
+        "prob": 0.1211
       },
       {
         "player": "Marcus Rashford",
         "team": "England",
-        "prob": 0.0965
+        "prob": 0.098
       },
       {
         "player": "Declan Rice",
         "team": "England",
-        "prob": 0.0708
+        "prob": 0.0719
       },
       {
         "player": "Eberechi Eze",
         "team": "England",
-        "prob": 0.0584
+        "prob": 0.0593
       },
       {
         "player": "Jack Grealish",
         "team": "England",
-        "prob": 0.046
+        "prob": 0.0468
       },
       {
         "player": "Raheem Sterling",
         "team": "England",
-        "prob": 0.0442
+        "prob": 0.0449
       },
       {
         "player": "Anthony Gordon",
         "team": "England",
-        "prob": 0.0364
+        "prob": 0.037
       },
       {
         "player": "Ollie Watkins",
         "team": "England",
-        "prob": 0.036
+        "prob": 0.0365
       }
     ],
     "factors": {
-      "expected_home_goals": 1.02,
-      "expected_away_goals": 1.75,
+      "expected_home_goals": 1.03,
+      "expected_away_goals": 1.78,
       "neutral_venue": true,
       "home_is_host": false,
       "away_is_host": false,
-      "elo_home": 1951.9,
+      "elo_home": 1938.3,
       "elo_away": 2064.1,
-      "elo_diff": -112.2
+      "elo_diff": -125.8
     },
     "is_frozen": true,
     "status": "scheduled",
