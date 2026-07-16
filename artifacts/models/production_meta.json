@@ -7,8 +7,8 @@
     "boosting": 0.3784316766425708
   },
   "calibration": "isotonic",
-  "temperature": 0.7907068624384989,
-  "data_cutoff": "2026-07-14",
+  "temperature": 0.7918811974150723,
+  "data_cutoff": "2026-07-15",
   "base_models": {
     "elo": "elo",
     "poisson": "poisson",
