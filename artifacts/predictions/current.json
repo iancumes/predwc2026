@@ -7520,59 +7520,59 @@
     "away_score": 1
   },
   {
-    "prediction_id": "fc516969f791cc82",
+    "prediction_id": "d2a6be4b94cff5ef",
     "match_id": "56344ec38d12d6f2",
-    "model_version_id": "production_ensemble-a877adc004",
-    "data_cutoff": "2026-07-18",
-    "created_at": "2026-07-19T08:24:27.379811+00:00",
+    "model_version_id": "production_ensemble-0ed5d3b2cd",
+    "data_cutoff": "2026-07-19",
+    "created_at": "2026-07-20T09:04:23.621889+00:00",
     "date": "2026-07-06",
     "home_team": "Argentina",
     "away_team": "Egypt",
-    "home_win_probability": 0.8051,
-    "draw_probability": 0.1537,
-    "away_win_probability": 0.0413,
-    "expected_home_goals": 1.962,
-    "expected_away_goals": 0.541,
-    "expected_total_goals": 2.502,
+    "home_win_probability": 0.777,
+    "draw_probability": 0.1837,
+    "away_win_probability": 0.0393,
+    "expected_home_goals": 1.976,
+    "expected_away_goals": 0.56,
+    "expected_total_goals": 2.536,
     "most_likely_score": "1-0",
-    "over_2_5": 0.4518,
-    "btts_yes": 0.3595,
-    "btts_no": 0.6405,
+    "over_2_5": 0.4581,
+    "btts_yes": 0.369,
+    "btts_no": 0.631,
     "over_under": {
-      "0.5": 0.9074,
-      "1.5": 0.7056,
-      "2.5": 0.4518,
-      "3.5": 0.2464
+      "0.5": 0.9077,
+      "1.5": 0.7086,
+      "2.5": 0.4581,
+      "3.5": 0.2543
     },
     "total_goals_dist": [
-      0.0926,
-      0.2017,
-      0.2539,
-      0.2054,
-      0.1301,
-      0.0679,
-      0.0484
+      0.0923,
+      0.1991,
+      0.2504,
+      0.2038,
+      0.1311,
+      0.0702,
+      0.0531
     ],
-    "home_clean_sheet": 0.5841,
-    "away_clean_sheet": 0.1491,
-    "home_win_to_nil": 0.4914,
-    "away_win_to_nil": 0.0564,
+    "home_clean_sheet": 0.5741,
+    "away_clean_sheet": 0.1492,
+    "home_win_to_nil": 0.4818,
+    "away_win_to_nil": 0.0569,
     "top_scorelines": [
       {
         "score": "1-0",
-        "prob": 0.1596
+        "prob": 0.1569
       },
       {
         "score": "2-0",
-        "prob": 0.1532
+        "prob": 0.1495
       },
       {
         "score": "3-0",
-        "prob": 0.0987
+        "prob": 0.0962
       },
       {
         "score": "0-0",
-        "prob": 0.0926
+        "prob": 0.0923
       },
       {
         "score": "1-1",
@@ -7580,110 +7580,110 @@
       },
       {
         "score": "2-1",
-        "prob": 0.0819
+        "prob": 0.082
       }
     ],
     "scorers": [
       {
         "player": "Lionel Messi",
         "team": "Argentina",
-        "prob": 0.4658
+        "prob": 0.4681
       },
       {
         "player": "Lautaro Mart\u00ednez",
         "team": "Argentina",
-        "prob": 0.3171
+        "prob": 0.3189
       },
       {
         "player": "Juli\u00e1n Alvarez",
         "team": "Argentina",
-        "prob": 0.198
+        "prob": 0.1992
       },
       {
         "player": "Enzo Fern\u00e1ndez",
         "team": "Argentina",
-        "prob": 0.1118
+        "prob": 0.1126
       },
       {
         "player": "Alexis Mac Allister",
         "team": "Argentina",
-        "prob": 0.0858
+        "prob": 0.0863
       },
       {
         "player": "Thiago Almada",
         "team": "Argentina",
-        "prob": 0.0668
+        "prob": 0.0672
       },
       {
         "player": "\u00c1ngel Di Mar\u00eda",
         "team": "Argentina",
-        "prob": 0.0584
+        "prob": 0.0588
       },
       {
         "player": "Nicol\u00e1s Gonz\u00e1lez",
         "team": "Argentina",
-        "prob": 0.0576
+        "prob": 0.058
       },
       {
         "player": "Lisandro Mart\u00ednez",
         "team": "Argentina",
-        "prob": 0.0514
+        "prob": 0.0518
       },
       {
         "player": "Nicol\u00e1s Otamendi",
         "team": "Argentina",
-        "prob": 0.051
+        "prob": 0.0514
       },
       {
         "player": "Mohamed Salah",
         "team": "Egypt",
-        "prob": 0.1567
+        "prob": 0.162
       },
       {
         "player": "Tr\u00e9z\u00e9guet",
         "team": "Egypt",
-        "prob": 0.0643
+        "prob": 0.0665
       },
       {
         "player": "Omar Marmoush",
         "team": "Egypt",
-        "prob": 0.0492
+        "prob": 0.051
       },
       {
         "player": "Mostafa Mohamed",
         "team": "Egypt",
-        "prob": 0.0451
+        "prob": 0.0467
       },
       {
         "player": "Mostafa Ziko",
         "team": "Egypt",
-        "prob": 0.0301
+        "prob": 0.0312
       },
       {
         "player": "Emam Ashour",
         "team": "Egypt",
-        "prob": 0.03
+        "prob": 0.0311
       },
       {
         "player": "Yasser Ibrahim",
         "team": "Egypt",
-        "prob": 0.0283
+        "prob": 0.0293
       },
       {
         "player": "Ahmed Sayed",
         "team": "Egypt",
-        "prob": 0.0212
+        "prob": 0.0219
       }
     ],
     "factors": {
-      "expected_home_goals": 1.96,
-      "expected_away_goals": 0.54,
+      "expected_home_goals": 1.98,
+      "expected_away_goals": 0.56,
       "neutral_venue": true,
       "home_is_host": false,
       "away_is_host": false,
-      "elo_home": 2170.2,
+      "elo_home": 2151.2,
       "elo_away": 1802.8,
-      "elo_diff": 367.5
+      "elo_diff": 348.4
     },
     "is_frozen": true,
     "status": "scheduled",
@@ -7691,74 +7691,74 @@
     "away_score": null
   },
   {
-    "prediction_id": "dbe8084617b2429f",
+    "prediction_id": "760bc062c6bd6fa2",
     "match_id": "938714f1140c61a0",
-    "model_version_id": "production_ensemble-a877adc004",
-    "data_cutoff": "2026-07-18",
-    "created_at": "2026-07-19T08:24:27.379811+00:00",
+    "model_version_id": "production_ensemble-0ed5d3b2cd",
+    "data_cutoff": "2026-07-19",
+    "created_at": "2026-07-20T09:04:23.621889+00:00",
     "date": "2026-07-06",
     "home_team": "Switzerland",
     "away_team": "Colombia",
-    "home_win_probability": 0.2362,
-    "draw_probability": 0.3762,
-    "away_win_probability": 0.3876,
+    "home_win_probability": 0.2348,
+    "draw_probability": 0.366,
+    "away_win_probability": 0.3992,
     "expected_home_goals": 1.002,
-    "expected_away_goals": 1.362,
-    "expected_total_goals": 2.363,
+    "expected_away_goals": 1.368,
+    "expected_total_goals": 2.37,
     "most_likely_score": "1-1",
-    "over_2_5": 0.4207,
-    "btts_yes": 0.4755,
-    "btts_no": 0.5245,
+    "over_2_5": 0.4224,
+    "btts_yes": 0.4765,
+    "btts_no": 0.5235,
     "over_under": {
-      "0.5": 0.901,
-      "1.5": 0.6884,
-      "2.5": 0.4207,
-      "3.5": 0.2137
+      "0.5": 0.9016,
+      "1.5": 0.6899,
+      "2.5": 0.4224,
+      "3.5": 0.215
     },
     "total_goals_dist": [
-      0.099,
-      0.2126,
-      0.2677,
-      0.207,
-      0.1223,
-      0.0578,
-      0.0335
+      0.0984,
+      0.2117,
+      0.2675,
+      0.2074,
+      0.1229,
+      0.0582,
+      0.0339
     ],
-    "home_clean_sheet": 0.2562,
+    "home_clean_sheet": 0.2545,
     "away_clean_sheet": 0.3673,
-    "home_win_to_nil": 0.1572,
-    "away_win_to_nil": 0.2683,
+    "home_win_to_nil": 0.1561,
+    "away_win_to_nil": 0.2689,
     "top_scorelines": [
       {
         "score": "1-1",
-        "prob": 0.1332
+        "prob": 0.133
       },
       {
         "score": "0-1",
-        "prob": 0.1233
+        "prob": 0.123
       },
       {
         "score": "0-0",
-        "prob": 0.099
+        "prob": 0.0984
       },
       {
         "score": "1-0",
-        "prob": 0.0894
+        "prob": 0.0887
       },
       {
         "score": "1-2",
-        "prob": 0.0874
+        "prob": 0.0877
       },
       {
         "score": "0-2",
-        "prob": 0.0872
+        "prob": 0.0875
       }
     ],
     "scorers": [
       {
         "player": "Breel Embolo",
         "team": "Switzerland",
-        "prob": 0.1625
+        "prob": 0.1624
       },
       {
         "player": "Rub\u00e9n Vargas",
@@ -7808,57 +7808,57 @@
       {
         "player": "Luis D\u00edaz",
         "team": "Colombia",
-        "prob": 0.2625
+        "prob": 0.2636
       },
       {
         "player": "Luis Su\u00e1rez",
         "team": "Colombia",
-        "prob": 0.1113
+        "prob": 0.1118
       },
       {
         "player": "Daniel Mu\u00f1oz",
         "team": "Colombia",
-        "prob": 0.1091
+        "prob": 0.1096
       },
       {
         "player": "James Rodr\u00edguez",
         "team": "Colombia",
-        "prob": 0.1031
+        "prob": 0.1036
       },
       {
         "player": "Jhon C\u00f3rdoba",
         "team": "Colombia",
-        "prob": 0.0962
+        "prob": 0.0966
       },
       {
         "player": "Miguel Borja",
         "team": "Colombia",
-        "prob": 0.067
+        "prob": 0.0673
       },
       {
         "player": "Juan Fernando Quintero",
         "team": "Colombia",
-        "prob": 0.0515
+        "prob": 0.0517
       },
       {
         "player": "Jefferson Lerma",
         "team": "Colombia",
-        "prob": 0.0484
+        "prob": 0.0487
       },
       {
         "player": "Jhon Dur\u00e1n",
         "team": "Colombia",
-        "prob": 0.0476
+        "prob": 0.0479
       },
       {
         "player": "Davinson S\u00e1nchez",
         "team": "Colombia",
-        "prob": 0.043
+        "prob": 0.0432
       }
     ],
     "factors": {
       "expected_home_goals": 1.0,
-      "expected_away_goals": 1.36,
+      "expected_away_goals": 1.37,
       "neutral_venue": true,
       "home_is_host": false,
       "away_is_host": false,
@@ -7952,43 +7952,43 @@
     "away_score": 0
   },
   {
-    "prediction_id": "6a8b38e2df395042",
+    "prediction_id": "d6b2927cc0bced9e",
     "match_id": "fd386ea9fb48e916",
-    "model_version_id": "production_ensemble-f26e8014f7",
+    "model_version_id": "production_ensemble-ac9e5a2e01",
     "data_cutoff": "2026-07-10",
-    "created_at": "2026-07-16T15:48:23.218038+00:00",
+    "created_at": "2026-07-20T09:03:06.514374+00:00",
     "date": "2026-07-11",
     "home_team": "Norway",
     "away_team": "England",
-    "home_win_probability": 0.1941,
-    "draw_probability": 0.243,
-    "away_win_probability": 0.563,
+    "home_win_probability": 0.205,
+    "draw_probability": 0.2434,
+    "away_win_probability": 0.5515,
     "expected_home_goals": 1.003,
-    "expected_away_goals": 1.909,
-    "expected_total_goals": 2.912,
+    "expected_away_goals": 1.91,
+    "expected_total_goals": 2.913,
     "most_likely_score": "1-1",
-    "over_2_5": 0.55,
-    "btts_yes": 0.5362,
-    "btts_no": 0.4638,
+    "over_2_5": 0.5503,
+    "btts_yes": 0.5363,
+    "btts_no": 0.4637,
     "over_under": {
-      "0.5": 0.9362,
-      "1.5": 0.7826,
-      "2.5": 0.55,
-      "3.5": 0.3333
+      "0.5": 0.9363,
+      "1.5": 0.7827,
+      "2.5": 0.5503,
+      "3.5": 0.3335
     },
     "total_goals_dist": [
-      0.0638,
-      0.1537,
-      0.2325,
+      0.0637,
+      0.1536,
+      0.2324,
       0.2167,
-      0.1578,
+      0.1579,
       0.094,
-      0.0816
+      0.0817
     ],
-    "home_clean_sheet": 0.1609,
+    "home_clean_sheet": 0.1607,
     "away_clean_sheet": 0.3667,
-    "home_win_to_nil": 0.0971,
-    "away_win_to_nil": 0.3029,
+    "home_win_to_nil": 0.097,
+    "away_win_to_nil": 0.303,
     "top_scorelines": [
       {
         "score": "1-1",
@@ -8008,7 +8008,7 @@
       },
       {
         "score": "0-0",
-        "prob": 0.0638
+        "prob": 0.0637
       },
       {
         "score": "1-3",
@@ -8272,63 +8272,63 @@
     "away_score": 0
   },
   {
-    "prediction_id": "8232f35c3a5ba768",
+    "prediction_id": "019cada2dc2f40ca",
     "match_id": "f3d5c28d211183f3",
-    "model_version_id": "production_ensemble-f26e8014f7",
+    "model_version_id": "production_ensemble-ac9e5a2e01",
     "data_cutoff": "2026-07-10",
-    "created_at": "2026-07-16T15:48:23.218038+00:00",
+    "created_at": "2026-07-20T09:03:06.514374+00:00",
     "date": "2026-07-11",
     "home_team": "Argentina",
     "away_team": "Switzerland",
-    "home_win_probability": 0.6287,
-    "draw_probability": 0.2878,
-    "away_win_probability": 0.0835,
-    "expected_home_goals": 1.625,
-    "expected_away_goals": 0.869,
-    "expected_total_goals": 2.494,
+    "home_win_probability": 0.626,
+    "draw_probability": 0.2921,
+    "away_win_probability": 0.0819,
+    "expected_home_goals": 1.627,
+    "expected_away_goals": 0.876,
+    "expected_total_goals": 2.503,
     "most_likely_score": "1-0",
-    "over_2_5": 0.4522,
-    "btts_yes": 0.4676,
-    "btts_no": 0.5324,
+    "over_2_5": 0.4546,
+    "btts_yes": 0.4703,
+    "btts_no": 0.5297,
     "over_under": {
-      "0.5": 0.9091,
-      "1.5": 0.7103,
-      "2.5": 0.4522,
-      "3.5": 0.2431
+      "0.5": 0.9101,
+      "1.5": 0.7124,
+      "2.5": 0.4546,
+      "3.5": 0.2449
     },
     "total_goals_dist": [
-      0.0909,
-      0.1988,
-      0.2581,
-      0.2091,
-      0.1313,
-      0.067,
-      0.0449
+      0.0899,
+      0.1977,
+      0.2578,
+      0.2097,
+      0.132,
+      0.0675,
+      0.0453
     ],
-    "home_clean_sheet": 0.424,
-    "away_clean_sheet": 0.1993,
-    "home_win_to_nil": 0.3331,
-    "away_win_to_nil": 0.1084,
+    "home_clean_sheet": 0.4209,
+    "away_clean_sheet": 0.1988,
+    "home_win_to_nil": 0.3309,
+    "away_win_to_nil": 0.1088,
     "top_scorelines": [
       {
         "score": "1-0",
-        "prob": 0.132
+        "prob": 0.1308
       },
       {
         "score": "1-1",
-        "prob": 0.119
+        "prob": 0.1192
       },
       {
         "score": "2-0",
-        "prob": 0.1088
+        "prob": 0.1081
       },
       {
         "score": "2-1",
-        "prob": 0.0926
+        "prob": 0.0929
       },
       {
         "score": "0-0",
-        "prob": 0.0909
+        "prob": 0.0899
       },
       {
         "score": "0-1",
@@ -8337,8 +8337,8 @@
     ],
     "scorers": [],
     "factors": {
-      "expected_home_goals": 1.62,
-      "expected_away_goals": 0.87,
+      "expected_home_goals": 1.63,
+      "expected_away_goals": 0.88,
       "neutral_venue": true,
       "home_is_host": false,
       "away_is_host": false,
@@ -8352,73 +8352,73 @@
     "away_score": 1
   },
   {
-    "prediction_id": "2355ce984c77af28",
+    "prediction_id": "ec102d667d9db562",
     "match_id": "beb06e26682d0cff",
-    "model_version_id": "production_ensemble-6ac89f48ea",
+    "model_version_id": "production_ensemble-733b07d75d",
     "data_cutoff": "2026-07-11",
-    "created_at": "2026-07-16T15:48:41.871963+00:00",
+    "created_at": "2026-07-20T09:03:22.035492+00:00",
     "date": "2026-07-14",
     "home_team": "France",
     "away_team": "Spain",
-    "home_win_probability": 0.2358,
-    "draw_probability": 0.3768,
-    "away_win_probability": 0.3874,
-    "expected_home_goals": 0.996,
-    "expected_away_goals": 1.319,
-    "expected_total_goals": 2.315,
+    "home_win_probability": 0.235,
+    "draw_probability": 0.3781,
+    "away_win_probability": 0.387,
+    "expected_home_goals": 0.99,
+    "expected_away_goals": 1.31,
+    "expected_total_goals": 2.301,
     "most_likely_score": "1-1",
-    "over_2_5": 0.4078,
-    "btts_yes": 0.4665,
-    "btts_no": 0.5335,
+    "over_2_5": 0.4041,
+    "btts_yes": 0.4638,
+    "btts_no": 0.5362,
     "over_under": {
-      "0.5": 0.8962,
-      "1.5": 0.6772,
-      "2.5": 0.4078,
-      "3.5": 0.2037
+      "0.5": 0.8947,
+      "1.5": 0.6742,
+      "2.5": 0.4041,
+      "3.5": 0.2009
     },
     "total_goals_dist": [
-      0.1038,
-      0.219,
-      0.2694,
-      0.2041,
-      0.1181,
-      0.0547,
-      0.0309
+      0.1053,
+      0.2204,
+      0.2701,
+      0.2033,
+      0.1169,
+      0.0538,
+      0.0301
     ],
-    "home_clean_sheet": 0.2675,
-    "away_clean_sheet": 0.3698,
-    "home_win_to_nil": 0.1637,
-    "away_win_to_nil": 0.266,
+    "home_clean_sheet": 0.2697,
+    "away_clean_sheet": 0.3718,
+    "home_win_to_nil": 0.1644,
+    "away_win_to_nil": 0.2664,
     "top_scorelines": [
       {
         "score": "1-1",
-        "prob": 0.1345
+        "prob": 0.135
       },
       {
         "score": "0-1",
-        "prob": 0.1256
+        "prob": 0.1263
       },
       {
         "score": "0-0",
-        "prob": 0.1038
+        "prob": 0.1053
       },
       {
         "score": "1-0",
-        "prob": 0.0934
+        "prob": 0.0941
       },
       {
         "score": "0-2",
-        "prob": 0.086
+        "prob": 0.0861
       },
       {
         "score": "1-2",
-        "prob": 0.0855
+        "prob": 0.0851
       }
     ],
     "scorers": [],
     "factors": {
-      "expected_home_goals": 1.0,
-      "expected_away_goals": 1.32,
+      "expected_home_goals": 0.99,
+      "expected_away_goals": 1.31,
       "neutral_venue": true,
       "home_is_host": false,
       "away_is_host": false,
@@ -8432,63 +8432,63 @@
     "away_score": 2
   },
   {
-    "prediction_id": "1ca70709e5c19fd8",
+    "prediction_id": "9d32c786eccf77bc",
     "match_id": "2c228b7079567cfd",
-    "model_version_id": "production_ensemble-7739160bc0",
+    "model_version_id": "production_ensemble-26a73dcc0f",
     "data_cutoff": "2026-07-14",
-    "created_at": "2026-07-16T15:49:00.840362+00:00",
+    "created_at": "2026-07-20T09:03:37.723345+00:00",
     "date": "2026-07-15",
     "home_team": "England",
     "away_team": "Argentina",
-    "home_win_probability": 0.2504,
-    "draw_probability": 0.3394,
-    "away_win_probability": 0.4102,
-    "expected_home_goals": 0.981,
-    "expected_away_goals": 1.412,
-    "expected_total_goals": 2.393,
+    "home_win_probability": 0.2512,
+    "draw_probability": 0.3381,
+    "away_win_probability": 0.4107,
+    "expected_home_goals": 0.978,
+    "expected_away_goals": 1.413,
+    "expected_total_goals": 2.391,
     "most_likely_score": "1-1",
-    "over_2_5": 0.4207,
-    "btts_yes": 0.4681,
-    "btts_no": 0.5319,
+    "over_2_5": 0.42,
+    "btts_yes": 0.4672,
+    "btts_no": 0.5328,
     "over_under": {
-      "0.5": 0.8893,
-      "1.5": 0.6751,
-      "2.5": 0.4207,
-      "3.5": 0.2272
+      "0.5": 0.889,
+      "1.5": 0.6744,
+      "2.5": 0.42,
+      "3.5": 0.2267
     },
     "total_goals_dist": [
-      0.1107,
-      0.2142,
-      0.2544,
-      0.1936,
-      0.1191,
-      0.062,
-      0.046
+      0.111,
+      0.2147,
+      0.2543,
+      0.1933,
+      0.1189,
+      0.0619,
+      0.0459
     ],
-    "home_clean_sheet": 0.262,
-    "away_clean_sheet": 0.3806,
-    "home_win_to_nil": 0.1514,
-    "away_win_to_nil": 0.2699,
+    "home_clean_sheet": 0.2618,
+    "away_clean_sheet": 0.382,
+    "home_win_to_nil": 0.1508,
+    "away_win_to_nil": 0.271,
     "top_scorelines": [
       {
         "score": "1-1",
-        "prob": 0.1262
+        "prob": 0.1261
       },
       {
         "score": "0-1",
-        "prob": 0.1244
+        "prob": 0.125
       },
       {
         "score": "0-0",
-        "prob": 0.1107
+        "prob": 0.111
       },
       {
         "score": "1-0",
-        "prob": 0.0898
+        "prob": 0.0897
       },
       {
         "score": "0-2",
-        "prob": 0.0845
+        "prob": 0.0848
       },
       {
         "score": "1-2",
@@ -8512,174 +8512,73 @@
     "away_score": 2
   },
   {
-    "prediction_id": "4a64995847fcd531",
+    "prediction_id": "b0823c52433eda3e",
     "match_id": "2f32e8dfaaab62e2",
-    "model_version_id": "production_ensemble-c154cd2fc8",
+    "model_version_id": "production_ensemble-66eb6adc17",
     "data_cutoff": "2026-07-15",
-    "created_at": "2026-07-16T15:49:19.804580+00:00",
+    "created_at": "2026-07-20T09:03:53.040801+00:00",
     "date": "2026-07-18",
     "home_team": "France",
     "away_team": "England",
-    "home_win_probability": 0.3447,
-    "draw_probability": 0.339,
-    "away_win_probability": 0.3162,
-    "expected_home_goals": 1.255,
-    "expected_away_goals": 1.175,
-    "expected_total_goals": 2.429,
+    "home_win_probability": 0.3415,
+    "draw_probability": 0.3413,
+    "away_win_probability": 0.3172,
+    "expected_home_goals": 1.254,
+    "expected_away_goals": 1.178,
+    "expected_total_goals": 2.432,
     "most_likely_score": "1-1",
-    "over_2_5": 0.4363,
-    "btts_yes": 0.4971,
-    "btts_no": 0.5029,
+    "over_2_5": 0.437,
+    "btts_yes": 0.4976,
+    "btts_no": 0.5024,
     "over_under": {
-      "0.5": 0.904,
-      "1.5": 0.6989,
-      "2.5": 0.4363,
-      "3.5": 0.2289
+      "0.5": 0.9043,
+      "1.5": 0.6994,
+      "2.5": 0.437,
+      "3.5": 0.2294
     },
     "total_goals_dist": [
-      0.096,
-      0.2051,
-      0.2625,
-      0.2074,
-      0.1267,
-      0.0626,
-      0.0397
+      0.0957,
+      0.2049,
+      0.2624,
+      0.2076,
+      0.1269,
+      0.0628,
+      0.0398
     ],
-    "home_clean_sheet": 0.3115,
-    "away_clean_sheet": 0.2874,
-    "home_win_to_nil": 0.2155,
-    "away_win_to_nil": 0.1915,
+    "home_clean_sheet": 0.3105,
+    "away_clean_sheet": 0.2876,
+    "home_win_to_nil": 0.2148,
+    "away_win_to_nil": 0.1919,
     "top_scorelines": [
       {
         "score": "1-1",
-        "prob": 0.1337
+        "prob": 0.1336
       },
       {
         "score": "1-0",
-        "prob": 0.1062
+        "prob": 0.1059
       },
       {
         "score": "0-1",
-        "prob": 0.0989
+        "prob": 0.099
       },
       {
         "score": "0-0",
-        "prob": 0.096
+        "prob": 0.0957
       },
       {
         "score": "2-1",
-        "prob": 0.0803
+        "prob": 0.0802
       },
       {
         "score": "1-2",
-        "prob": 0.0751
+        "prob": 0.0753
       }
     ],
-    "scorers": [
-      {
-        "player": "Kylian Mbapp\u00e9",
-        "team": "France",
-        "prob": 0.3477
-      },
-      {
-        "player": "Ousmane Demb\u00e9l\u00e9",
-        "team": "France",
-        "prob": 0.1171
-      },
-      {
-        "player": "Randal Kolo Muani",
-        "team": "France",
-        "prob": 0.0687
-      },
-      {
-        "player": "Bradley Barcola",
-        "team": "France",
-        "prob": 0.0687
-      },
-      {
-        "player": "Olivier Giroud",
-        "team": "France",
-        "prob": 0.0653
-      },
-      {
-        "player": "Adrien Rabiot",
-        "team": "France",
-        "prob": 0.0607
-      },
-      {
-        "player": "Michael Olise",
-        "team": "France",
-        "prob": 0.0532
-      },
-      {
-        "player": "Karim Benzema",
-        "team": "France",
-        "prob": 0.0459
-      },
-      {
-        "player": "Antoine Griezmann",
-        "team": "France",
-        "prob": 0.0442
-      },
-      {
-        "player": "Jean-Philippe Mateta",
-        "team": "France",
-        "prob": 0.0291
-      },
-      {
-        "player": "Harry Kane",
-        "team": "England",
-        "prob": 0.3348
-      },
-      {
-        "player": "Jude Bellingham",
-        "team": "England",
-        "prob": 0.125
-      },
-      {
-        "player": "Bukayo Saka",
-        "team": "England",
-        "prob": 0.0785
-      },
-      {
-        "player": "Marcus Rashford",
-        "team": "England",
-        "prob": 0.0632
-      },
-      {
-        "player": "Declan Rice",
-        "team": "England",
-        "prob": 0.0462
-      },
-      {
-        "player": "Anthony Gordon",
-        "team": "England",
-        "prob": 0.0397
-      },
-      {
-        "player": "Eberechi Eze",
-        "team": "England",
-        "prob": 0.038
-      },
-      {
-        "player": "Jack Grealish",
-        "team": "England",
-        "prob": 0.0299
-      },
-      {
-        "player": "Raheem Sterling",
-        "team": "England",
-        "prob": 0.0287
-      },
-      {
-        "player": "Ollie Watkins",
-        "team": "England",
-        "prob": 0.0233
-      }
-    ],
+    "scorers": [],
     "factors": {
       "expected_home_goals": 1.25,
-      "expected_away_goals": 1.17,
+      "expected_away_goals": 1.18,
       "neutral_venue": true,
       "home_is_host": false,
       "away_is_host": false,
@@ -8688,178 +8587,77 @@
       "elo_diff": 43.1
     },
     "is_frozen": true,
-    "status": "scheduled",
-    "home_score": null,
-    "away_score": null
+    "status": "played",
+    "home_score": 4,
+    "away_score": 6
   },
   {
-    "prediction_id": "9ffac16fd26c5a6c",
+    "prediction_id": "84b8d0512910c31f",
     "match_id": "ef4762968e037f2e",
-    "model_version_id": "production_ensemble-a877adc004",
+    "model_version_id": "production_ensemble-bbfd196c6f",
     "data_cutoff": "2026-07-18",
-    "created_at": "2026-07-19T08:24:27.379811+00:00",
+    "created_at": "2026-07-20T09:04:08.427511+00:00",
     "date": "2026-07-19",
     "home_team": "Spain",
     "away_team": "Argentina",
-    "home_win_probability": 0.3587,
-    "draw_probability": 0.298,
-    "away_win_probability": 0.3433,
-    "expected_home_goals": 1.117,
+    "home_win_probability": 0.3548,
+    "draw_probability": 0.2984,
+    "away_win_probability": 0.3467,
+    "expected_home_goals": 1.114,
     "expected_away_goals": 1.113,
-    "expected_total_goals": 2.23,
+    "expected_total_goals": 2.227,
     "most_likely_score": "1-1",
-    "over_2_5": 0.3843,
-    "btts_yes": 0.4541,
-    "btts_no": 0.5459,
+    "over_2_5": 0.3834,
+    "btts_yes": 0.4536,
+    "btts_no": 0.5464,
     "over_under": {
-      "0.5": 0.8838,
-      "1.5": 0.6534,
-      "2.5": 0.3843,
-      "3.5": 0.1888
+      "0.5": 0.8833,
+      "1.5": 0.6526,
+      "2.5": 0.3834,
+      "3.5": 0.1882
     },
     "total_goals_dist": [
-      0.1162,
-      0.2304,
-      0.2691,
-      0.1955,
-      0.11,
-      0.0503,
-      0.0285
+      0.1167,
+      0.2306,
+      0.2692,
+      0.1952,
+      0.1098,
+      0.0501,
+      0.0284
     ],
-    "home_clean_sheet": 0.3337,
-    "away_clean_sheet": 0.3284,
-    "home_win_to_nil": 0.2175,
-    "away_win_to_nil": 0.2122,
+    "home_clean_sheet": 0.3339,
+    "away_clean_sheet": 0.3293,
+    "home_win_to_nil": 0.2171,
+    "away_win_to_nil": 0.2126,
     "top_scorelines": [
       {
         "score": "1-1",
-        "prob": 0.1369
+        "prob": 0.137
+      },
+      {
+        "score": "0-0",
+        "prob": 0.1167
       },
       {
         "score": "1-0",
         "prob": 0.1167
       },
       {
-        "score": "0-0",
-        "prob": 0.1162
-      },
-      {
         "score": "0-1",
-        "prob": 0.1137
+        "prob": 0.1139
       },
       {
         "score": "2-1",
-        "prob": 0.0734
+        "prob": 0.0732
       },
       {
         "score": "1-2",
         "prob": 0.0729
       }
     ],
-    "scorers": [
-      {
-        "player": "Mikel Oyarzabal",
-        "team": "Spain",
-        "prob": 0.186
-      },
-      {
-        "player": "Mikel Merino",
-        "team": "Spain",
-        "prob": 0.1221
-      },
-      {
-        "player": "Ferran Torres",
-        "team": "Spain",
-        "prob": 0.1025
-      },
-      {
-        "player": "\u00c1lvaro Morata",
-        "team": "Spain",
-        "prob": 0.0832
-      },
-      {
-        "player": "Lamine Yamal",
-        "team": "Spain",
-        "prob": 0.0634
-      },
-      {
-        "player": "Dani Olmo",
-        "team": "Spain",
-        "prob": 0.0575
-      },
-      {
-        "player": "Fabi\u00e1n Ruiz",
-        "team": "Spain",
-        "prob": 0.0457
-      },
-      {
-        "player": "Nico Williams",
-        "team": "Spain",
-        "prob": 0.0416
-      },
-      {
-        "player": "Joselu",
-        "team": "Spain",
-        "prob": 0.0379
-      },
-      {
-        "player": "Pedri",
-        "team": "Spain",
-        "prob": 0.0321
-      },
-      {
-        "player": "Lionel Messi",
-        "team": "Argentina",
-        "prob": 0.2994
-      },
-      {
-        "player": "Lautaro Mart\u00ednez",
-        "team": "Argentina",
-        "prob": 0.1946
-      },
-      {
-        "player": "Juli\u00e1n Alvarez",
-        "team": "Argentina",
-        "prob": 0.1177
-      },
-      {
-        "player": "Enzo Fern\u00e1ndez",
-        "team": "Argentina",
-        "prob": 0.0651
-      },
-      {
-        "player": "Alexis Mac Allister",
-        "team": "Argentina",
-        "prob": 0.0496
-      },
-      {
-        "player": "Thiago Almada",
-        "team": "Argentina",
-        "prob": 0.0384
-      },
-      {
-        "player": "\u00c1ngel Di Mar\u00eda",
-        "team": "Argentina",
-        "prob": 0.0336
-      },
-      {
-        "player": "Nicol\u00e1s Gonz\u00e1lez",
-        "team": "Argentina",
-        "prob": 0.0331
-      },
-      {
-        "player": "Lisandro Mart\u00ednez",
-        "team": "Argentina",
-        "prob": 0.0295
-      },
-      {
-        "player": "Nicol\u00e1s Otamendi",
-        "team": "Argentina",
-        "prob": 0.0293
-      }
-    ],
+    "scorers": [],
     "factors": {
-      "expected_home_goals": 1.12,
+      "expected_home_goals": 1.11,
       "expected_away_goals": 1.11,
       "neutral_venue": true,
       "home_is_host": false,
@@ -8869,8 +8667,8 @@
       "elo_diff": 16.4
     },
     "is_frozen": true,
-    "status": "scheduled",
-    "home_score": null,
-    "away_score": null
+    "status": "played",
+    "home_score": 1,
+    "away_score": 0
   }
 ]
